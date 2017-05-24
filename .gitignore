@@ -9,6 +9,12 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+*UmbracoTraceLog
+
+# User-specific folders
+/App_Data/Logs
+/App_Data/TEMP
+
 
 # Build results
 [Dd]ebug/

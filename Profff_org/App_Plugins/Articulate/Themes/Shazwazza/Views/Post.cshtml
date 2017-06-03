@@ -1,0 +1,14 @@
+@using Articulate
+@using Umbraco.Core
+@model Articulate.Models.PostModel
+@{
+    Layout = "Master.cshtml";
+    ViewBag.CssBodyClass = "post-template";
+}
+
+    <div class="col-s-9 main">
+         @Html.ThemedPartial(Model, "Post", Model)
+    </div>
+    <aside>
+        @Html.ThemedPartial(Model, "SideWidgets")
+    </aside>

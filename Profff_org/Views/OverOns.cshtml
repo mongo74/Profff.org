@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.OverOns>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "ContentPage.cshtml";
+}
+
+@* the fun starts here *@
+<p>
+    
+    @Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)
+</p>

@@ -1,0 +1,108 @@
+@using Articulate
+@using Articulate.Models
+@using Umbraco.Core
+@using Umbraco.Web
+@model Articulate.Models.ListModel
+@{
+    Layout = "Master.cshtml";
+}
+<!-- Profff Blog-->
+<div class="col-sm-9 main">
+
+    @if (!Model.Children.Any())
+    {
+        <article>No blog posts found</article>
+    }
+    else
+    {
+        <p><strong>@Model.Children.Count()</strong> artikels</p>
+
+        <div class="blog-grid row">
+            @foreach (var post in Model.Children<PostModel>())
+                {
+                <!-- masonry grid item start -->
+
+                <div class="col-sm-6 news-item">
+                    <h4><a href="#">Verkoop van wijnen !</a></h4>
+                    <span><small><i class="icon icon-calendar iconBefore"></i> @post.PublishedDate.ToString("dd/MM/yyyy")</small></span>
+                    @*<img class="thumb" src="images/design/house.jpg" alt="" />*@
+                    @if (!post.PostImageUrl.IsNullOrWhiteSpace())
+                    {
+                        var thumbnail = post.GetCropUrl("postImage", "thumbnail");
+                        if (!thumbnail.IsNullOrWhiteSpace())
+                        {
+                            <img class="thumb" src="@thumbnail" alt="@post.Name" />
+                        }
+                    }
+                    <p>@post.Excerpt&hellip;</p>
+                    <p>
+                        <span><small></small></span>
+                    </p>
+                    <a class="read-more" href="@post.Url">Read more<i class="fa fa-chevron-right iconBehind"></i></a>
+                </div>
+
+                    <!-- blogpost start -->
+                @*<article class="blogpost">
+                        <header>
+                            <h2><a href="@post.Url">@post.Name</a></h2>
+                            <div class="post-info">
+                                <small>
+                                    <time datetime="@post.PublishedDate.ToString("yyyy-MM-dd")">
+                                        <i class="icon icon-calendar"></i>
+                                        @post.PublishedDate.ToString("dddd, MMMM dd, yyyy")
+                                    </time>
+                                    <span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
+                                </small>
+                            </div>
+                        </header>
+                        <div class="blogpost-content">
+                            <p>
+                                @post.Excerpt&hellip;
+                            </p>
+                        </div>
+                        <footer class="clearfix">
+                            <small>
+                                <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+                                <div class="link pull-right"><i class="icon-link"></i><a href="@post.Url">Read More</a></div>
+                            </small>
+                        </footer>
+                    </article>*@
+                    <!-- blogpost end -->
+
+				<!-- masonry grid item end -->
+                }
+        </div>
+
+        @*foreach (var post in Model.Children<PostModel>())
+            {
+                <article class="post tag-ghost-tag">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <time datetime="@post.PublishedDate.ToString("yyyy-MM-dd")">
+                                @post.PublishedDate.ToString("dddd, MMMM dd, yyyy")
+                            </time>
+
+                        </span>
+                        <h2 class="post-title"><a href="@post.Url">@post.Name</a></h2>
+                    </header>
+                    <section class="post-excerpt">
+                        @if (!post.PostImageUrl.IsNullOrWhiteSpace())
+                    {
+                        var thumbnail = post.GetCropUrl("postImage", "thumbnail");
+                        if (!thumbnail.IsNullOrWhiteSpace())
+                        {
+                                <img class="thumb" src="@thumbnail" alt="@post.Name" />
+                            }
+                        }
+                        <p>@post.Excerpt&hellip;</p>
+                        <small>@Html.ThemedPartial(Model, "PostTags", post)</small>
+                    </section>
+                </article>
+            }
+            @Html.ThemedPartial(Model, "Pager", Model.Pages)*@
+    }
+
+</div>
+<aside class="col-sm-3">
+    @Html.ThemedPartial(Model, "SideWidgets")
+</aside>

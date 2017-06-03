@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+ 
+@{ 
+    var ContentNodeId = Model.MacroParameters["ContentNodeId"];
+    if (ContentNodeId != null)
+    {
+             var ContentItem = Umbraco.Content(ContentNodeId);
+ 
+            <div class="footer-col-inner AboutUsText col-sm-6">
+                <h4>Over ons</h4>
+                <p>
+                   @ContentItem.GetPropertyValue("overOnsFooter")
+                </p>
+            </div>
+
+            <div class="footer-col-inner contactinfo col-sm-6">
+                <h4>Contact</h4>
+                @{
+                    var archeTypeContent = ContentItem.GetPropertyValue("adres")
+                        .Fieldsets[0];
+                }
+                <p>
+                    <i class="fa fa-map-marker pull-left"></i>Profff VZW<br>
+                    <span> @archeTypeContent.GetValue("adress1")</span> <br>
+                    <span> @archeTypeContent.GetValue("adres2")</span><br>
+                    <span> @archeTypeContent.GetValue("land")</span>
+                </p>
+                <p><i class="fa fa-phone pull-left"></i>@archeTypeContent.GetValue("tel")</p>
+                <p>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:@archeTypeContent.GetValue("email")">
+                        @archeTypeContent.GetValue("email")
+                    </a>
+                </p>
+            </div>
+   }
+}
+ 

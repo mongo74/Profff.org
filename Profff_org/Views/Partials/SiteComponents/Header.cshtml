@@ -1,0 +1,94 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+                <!-- ******HEADER****** -->
+        <header class="header">
+            <!-- BEGIN TOP BAR-->
+            <div class="top-bar col-md-12 col-sm-12">
+                <div class="container  ">
+                  @*  <ul class="SecondaryMenu">
+                        <li class="divider"><a href="/"><i class="iconBefore icon icon-home icon-fw"></i><span class="hidden-xs">Home</span></a></li>
+                        <li class="divider"><a href="#"><i class="iconBefore icon icon-newspaper"></i><span class="hidden-xs">Nieuws</span></a></li>
+                        <li class="divider"><a href="#"><i class="iconBefore icon icon-sys-help-2 icon-fw"></i><span class="hidden-xs">Over ons</span></a></li>
+                        <li class=""><a href="#"><i class="fa fa-envelope iconBefore"></i><span class="hidden-xs">Contact</span></a></li>
+                    </ul>*@
+                    @Umbraco.RenderMacro("SecondLevelNavigation")
+                    <!--//nav-toggle-->
+                </div>
+            </div>
+
+            <!--//TOP-BAR-->
+            <!-- BEGIN HEADER MAIN -->
+            <div class="header-main container">
+                <div class="logo">
+                    <a class="navbar-brand" href="#" id="logo" alt="Profff">
+                        <span class="hidden-xs">
+                            Profff<br />
+                            <small>Belgische Vereniging leerkrachten Frans</small>
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-header">
+                    <button class="nav navbar-inverse navbar-toggle pull-right" type="button"
+                            data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!--//info-->
+            </div>
+            <!--//header-main-->
+        </header>
+        <!--//header-->
+        <!-- ******NAV****** -->
+        <nav class="nav main-nav navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-collapse collapse " id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active nav-item">
+                            <a href="/"><i class="icon icon-home icon-fw icon-lg iconBefore"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-delay="0" data-close-others="false" href="#">Pro<em>FFF</em><i class="iconBehind fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Het laatste nummer</a></li>
+                                <li><a href="#"><i class="iconBefore icon-shelf icon-fw icon"></i>Archief</a></li>
+                                <li><a href="#"><i class="iconBefore fa-archive fa"></i>Pro<em>FFF</em> en ligne</a></li>
+                                <li><a href="/Html/FormPage.html">Form page</a></li>
+                                <li><a href="/Html/TablePAge.html">Table page</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0"
+                               data-close-others="false" href="#">Studiedag<i class="fa fa-angle-down iconBehind"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Html/Studiedag.html">Alle informatie</a></li>
+                                <li><a href="#">Programma</a></li>
+                                <li><a href="#">Inschrijvingsvoorwaarden</a></li>
+                                <li><a href="#">Inschrijvingen</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#">Haiku wedstrijd</a></li>
+                        <li class="nav-item"><a href="#">Francoform</a></li>
+                        <li class="nav-item"><a href="#">Formacom</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right Registration">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-delay="0" data-close-others="false"
+                               href="">Mijn Profff<i class="icon icon-arrow-down iconBehind"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon icon-locked"></i> Aanmelden</a></li>
+                                <li><a href="#"><i class="icon icon-request"></i> Ik ben nog geen lid</a></li>
+                                <li class="disabled"><a href="#"><i class="icon icon-sys-help-2"></i> Ik ben mijn paswoord vergeten</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!--//nav-->
+                </div>
+                <!--//navabr-collapse-->
+            </div>
+            <!--//container-->
+        </nav>
+        <!--//main-nav-->

@@ -1,0 +1,96 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Archetype.Models;
+@using Archetype.Extensions;
+
+<!-- ******FOOTER****** -->
+<footer class="footer">
+    <div class="footer-content container">
+        <div class="footer-col col-sm-6 col-xs-12">
+            <div class="footer-col-inner col-sm-6">
+                <h4 class="Title">Profff vzw</h4>
+                <ul class="FooterNav">
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Over ons</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Nieuws</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Haiku wedstrijd</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Formacom</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Francoform</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Contact</a></li>
+                </ul>
+                <h4 class="Title">Mijn Profff</h4>
+                <ul class="FooterNav">
+                    <li><a href="#"><i class="icon icon-locked iconBefore"></i>Aanmelden</a></li>
+                    <li><a href="#"><i class="icon icon-request iconBefore"></i>Ik ben nog geen lid</a></li>
+                    <li><a href="#"><i class="icon icon-sys-help-2 iconBefore"></i>Paswoord vergeten?</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-inner col-sm-6">
+                <h4 class="Title">Pro<em>FFF</em></h4>
+                <ul class="FooterNav">
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Over</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Laatste nummer</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Archief</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Abonneren?</a></li>
+                </ul>
+                <h4 class="Title">Studiedag</h4>
+                <ul class="FooterNav">
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Info</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Programma</a></li>
+                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Inschrijvingsvoorwaarden</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-col col-sm-6 col-xs-12 AboutUs">
+@*
+            <div class="footer-col-inner AboutUsText col-sm-6">
+                <h4>Over ons</h4>
+                <p>
+                    De Belgische Vereniging Leraren Frans, Vlaamse Gemeenschap (B.V.L.F. vzw), sinds kort
+                    veranderd in ProFFF vzw, is een vereniging zonder winstoogmerk in dienst van de leraren Frans
+                    in Vlaanderen en het Brussels Hoofdstedelijk Gewest.
+                </p>
+            </div>
+
+            <div class="footer-col-inner contactinfo col-sm-6">
+                <h4>Contact</h4>
+                <p>
+                    <i class="fa fa-map-marker pull-left"></i>Profff VZW<br>
+                    <span>O. De Reusestraat 22</span> <br>
+                    <span>9040 Sint-Amandsberg</span><br>
+                    <span>België</span>
+                </p>
+                <p><i class="fa fa-phone pull-left"></i>0800 123 4567</p>
+                <p>
+                    <i class="fa fa-envelope"></i>
+                    <a href="#">info@profff.org</a>
+                </p>
+            </div>
+*@
+            @Umbraco.RenderMacro("FooterAboutUsBlocks", new {ContentNodeId="1087"})
+            <div class="footer-col-inner col-sm-12">
+            @Umbraco.RenderMacro("SponsorBlocks", new {startNodeId="1088"})
+</div>
+                
+             
+
+                </div>
+                </div>
+
+        </div>
+
+
+    </div>
+
+    <!--//footer-content-->
+    <div class="bottom-bar">
+        <div class="container">
+            <small class="copyright col-md-6 col-sm-12 col-xs-12">
+                <i class="fa fa-copyright iconBefore"></i>
+                <a href="#"> &nbsp; Benoit Gevaert</a>
+            </small>
+            <ul class="social pull-right col-md-6 col-sm-12 col-xs-12"></ul><!--//social-->
+        </div>
+    </div><!--//container-->
+    <!--//bottom-bar-->
+</footer>
+<!--//footer-->

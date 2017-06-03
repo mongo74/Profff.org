@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "ContentPage.cshtml";
+}
+<h2>
+    @Umbraco.Field("nodeType")
+</h2>
+<p>
+    
+    @Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)
+</p>

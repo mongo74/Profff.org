@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var metadata = Model.Content.GetPropertyValue<Epiphany.SeoMetadata.SeoMetadata>("metaData");
+}
+
+<title>@metadata.Title | Profff</title>
+
+<!-- Meta -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="@metadata.Description" />
+@if (metadata.NoIndex)
+{
+    <meta name="robots" content="noindex">
+}
+
+<!-- Facebook tags -->
+<meta property="og:title" content="@metadata.Title" />
+<meta property="og:url" content="http://www.profff.org" />
+<meta property="og:description" content="@metadata.Description" />
+<meta property="og:image" content="" />
+<meta property="article:author" content="" />
+
+    
+<!-- Favicon -->
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon">

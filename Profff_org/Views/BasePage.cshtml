@@ -1,5 +1,49 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.BasePage>
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+    Layout = null;
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+@Html.Partial("SiteComponents/MetadataBlock")
+
+    <!-- Global CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- FONTS CSS-->
+    <link href="/Content/fonts.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+    <link href="/Content/SAP-icons.css" rel="stylesheet" />
+    <!-- Plugins CSS -->
+    <!--<link rel="stylesheet" href="./Responsive website template for education_files/font-awesome.css">
+    <link rel="stylesheet" href="./Responsive website template for education_files/flexslider.css">
+    <link rel="stylesheet" href="./Responsive website template for education_files/prettyPhoto.css">-->
+    <!-- Theme CSS -->
+    <!-- ProFFF CSS-->
+    <link href="/Content/Profff.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- BOOTSTRAP SCRIPTS-->
+
+</head>
+
+<body class="home-page">
+    <div class="wrapper">
+    @Html.Partial("SiteComponents/Header")
+        
+    
+        @RenderBody()
+   
+    </div>
+ 
+
+
+@Html.Partial("SiteComponents/Footer")
+</body>
+</html>

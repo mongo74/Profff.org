@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+ <section class="PageBanner">
+        <img src="/images/design/banner.jpg" class="hidden-xs" />
+        <div class="container">
+            <h1 class="PageTitle">
+                @Umbraco.Field("pageTitle", encoding: RenderFieldEncodingType.Html, convertLineBreaks: true)
+            </h1>
+        </div>
+    </section>

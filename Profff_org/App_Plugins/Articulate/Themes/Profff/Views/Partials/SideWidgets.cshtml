@@ -1,0 +1,10 @@
+@using Articulate
+@inherits UmbracoViewPage<Articulate.Models.IMasterModel>
+<div>
+    <div>
+        @Html.ThemedPartial(Model, "SearchBox")
+        @Html.ThemedPartial(Model, "Categories")
+        @Html.ThemedPartial(Model, "Recent")
+        @Html.ThemedPartial(Model, "TagCloud")
+    </div>
+</div>

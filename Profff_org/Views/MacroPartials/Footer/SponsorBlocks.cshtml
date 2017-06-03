@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+<h4>Onze sponsors</h4>
+<div class="sponsorblock">
+    @{ var startNodeId = Model.MacroParameters["startNodeId"]; }
+    @if (startNodeId != null)
+    {
+        @* Get the starting page *@
+        var startNode = Umbraco.Content(startNodeId);
+        var selection = startNode.Children.Where("Visible"); 
+        if (selection.Any())
+        {
+            foreach (var item in selection)
+            {
+                var image =  item.GetPropertyValue<IPublishedContent>("logo");
+                if(image != null){
+                    <div class="Sponsor">
+                        <a href="@startNode.Url" alt="@item.Name">
+                            <img src="@image.Url" alt="@item.Name" />
+                        </a>
+                    </div>
+                }
+            }
+        }
+    }
+</div>

@@ -246,3 +246,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Profff_org/App_Data/Logs
+/Profff_org/App_Data/cache
+/Profff_org/App_Data/preview

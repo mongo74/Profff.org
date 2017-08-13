@@ -1,0 +1,38 @@
+﻿@using Articulate
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    var blogRoot = Umbraco.ContentAtRoot().DescendantsOrSelf("Articulate").FirstOrDefault();
+    var blogArchive = blogRoot.Children.FirstOrDefault();
+}
+
+<section class="news">
+    <div class="container">
+        <h2>Laatste nieuws
+        <span class="pull-right"><small><small><a href="/nieuws/">Alle nieuwsberichten<i class="si-sm  si si-open-command-field iconBehind"></i></a></small></small></span>
+        </h2>
+        <div class="section-content clearfix">
+            @if (blogArchive != null && blogArchive.Children.Any())
+            {
+                foreach (var post in blogArchive.Children)
+                {
+                    <div class="col-sm-4 news-item">
+                        <h4><a href="@post.Url">@post.Name</a></h4>
+                        <span><small><i class="fa iconBefore fa-calendar"></i>
+                        @post.PublishedDate.ToString("dd/MM/yyyy")    
+                        </small></span>
+                        @if (!post.PostImageUrl.IsNullOrWhiteSpace())
+                        {
+                            var thumbnail = post.GetCropUrl("postImage", "thumbnail");
+                            if (!String.IsNullOrEmpty(thumbnail))
+                            {
+                                <img class="thumb" src="@thumbnail" alt="@post.Name" />
+                            }
+                        }
+                        <p>@post.Excerpt&hellip;</p>
+                        <a class="read-more" href="@post.Url"> @Umbraco.GetDictionaryValue("ReadMore")<i class="si-sm  si si-open-command-field iconBehind"></i></a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>

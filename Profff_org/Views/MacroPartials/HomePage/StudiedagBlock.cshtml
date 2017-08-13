@@ -1,0 +1,67 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var startNodeId = Model.MacroParameters["startNodeId"];
+    if (startNodeId != null)
+    {
+        var studiedagContent = Umbraco.Content(startNodeId);
+
+        <section class="studiedag box stats">
+            <div class="row">
+                <div class="container">
+                    <h2>@Html.Raw(studiedagContent.GetPropertyValue("pageTitle"))</h2>
+                    <div class="col-md-3 text-center col-xs-6 CounterBlock">
+                        <span class="fa-stack fa-5x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-diamond fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h3><strong>Ateliers</strong></h3>
+                        <span class="counter" data-to="25" data-speed="5000">
+                            @studiedagContent.GetPropertyValue("ateliersCounter").ToString()
+                        </span>
+                    </div>
+                    <div class="col-md-3 text-center col-xs-6 CounterBlock">
+                        <span class="si-stack si-5x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="si si-learning-assistant si-stack-1x si-inverse"></i>
+                        </span>
+                        <h3>
+                            <strong>Sprekers</strong>
+                        </h3>
+                        <span class="counter" data-to="15" data-speed="5000">
+                            @studiedagContent.GetPropertyValue("sprekersCounter")
+                        </span>
+                    </div>
+                    <div class="col-md-3 text-center col-xs-6 CounterBlock">
+                        <span class="si-stack si-5x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h3><strong>Bezoekers</strong></h3>
+                        <span class="counter" data-to="500" data-speed="5000">
+                            @studiedagContent.GetPropertyValue("bezoekersCounter")
+                        </span>
+                    </div>
+                    <div class="col-md-3 text-center col-xs-6 CounterBlock">
+                        <span class="si-stack si-5x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="si si-building si-stack-1x si-inverse"></i>
+                        </span>
+                        <h3><strong>Locatie</strong></h3>
+                        <span class="counter" data-to="1" data-speed="5000">
+                            @studiedagContent.GetPropertyValue("locatieCounter")
+                        </span>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <p>
+                            @studiedagContent.GetPropertyValue("intro")
+                        </p>
+                        <p>
+                            <a href="@studiedagContent.Url" class="btn btn-primary btn-large">Ontdek er hier alles over</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <!-- STUDIEDAG : END -->
+    }
+}

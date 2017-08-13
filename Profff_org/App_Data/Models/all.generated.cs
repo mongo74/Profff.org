@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4ecc131ff5396acc")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "8ec60b5e53fea916")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -40,9 +40,41 @@ using  Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
+	// Mixin content Type 1054 with alias "basePage"
+	/// <summary>BasePage</summary>
+	public partial interface IBasePage : IPublishedContent
+	{
+		/// <summary>Breadcrumb</summary>
+		string Breadcrumb { get; }
+
+		/// <summary>Displayname</summary>
+		string Displayname { get; }
+
+		/// <summary>Hide in XML Sitemap</summary>
+		bool HideInXmlsitemap { get; }
+
+		/// <summary>icon</summary>
+		object Icon { get; }
+
+		/// <summary>Intro</summary>
+		string Intro { get; }
+
+		/// <summary>metadata</summary>
+		Epiphany.SeoMetadata.SeoMetadata Metadata { get; }
+
+		/// <summary>Page Class</summary>
+		string PageClass { get; }
+
+		/// <summary>Page Title</summary>
+		string PageTitle { get; }
+
+		/// <summary>Title image</summary>
+		IPublishedContent TitleImage { get; }
+	}
+
 	/// <summary>BasePage</summary>
 	[PublishedContentModel("basePage")]
-	public partial class BasePage : PublishedContentModel
+	public partial class BasePage : PublishedContentModel, IBasePage
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "basePage";
@@ -71,8 +103,11 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("breadcrumb")]
 		public string Breadcrumb
 		{
-			get { return this.GetPropertyValue<string>("breadcrumb"); }
+			get { return GetBreadcrumb(this); }
 		}
+
+		/// <summary>Static getter for Breadcrumb</summary>
+		public static string GetBreadcrumb(IBasePage that) { return that.GetPropertyValue<string>("breadcrumb"); }
 
 		///<summary>
 		/// Displayname: How this page is represented in the navigation
@@ -80,8 +115,11 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("displayname")]
 		public string Displayname
 		{
-			get { return this.GetPropertyValue<string>("displayname"); }
+			get { return GetDisplayname(this); }
 		}
+
+		/// <summary>Static getter for Displayname</summary>
+		public static string GetDisplayname(IBasePage that) { return that.GetPropertyValue<string>("displayname"); }
 
 		///<summary>
 		/// Hide in XML Sitemap
@@ -89,8 +127,23 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("hideInXMLSitemap")]
 		public bool HideInXmlsitemap
 		{
-			get { return this.GetPropertyValue<bool>("hideInXMLSitemap"); }
+			get { return GetHideInXmlsitemap(this); }
 		}
+
+		/// <summary>Static getter for Hide in XML Sitemap</summary>
+		public static bool GetHideInXmlsitemap(IBasePage that) { return that.GetPropertyValue<bool>("hideInXMLSitemap"); }
+
+		///<summary>
+		/// icon: Icon to display on frontend
+		///</summary>
+		[ImplementPropertyType("icon")]
+		public object Icon
+		{
+			get { return GetIcon(this); }
+		}
+
+		/// <summary>Static getter for icon</summary>
+		public static object GetIcon(IBasePage that) { return that.GetPropertyValue("icon"); }
 
 		///<summary>
 		/// Intro: Korte inleiding, wordt getoond op de homepagina en op overzichtspagina's
@@ -98,8 +151,11 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("intro")]
 		public string Intro
 		{
-			get { return this.GetPropertyValue<string>("intro"); }
+			get { return GetIntro(this); }
 		}
+
+		/// <summary>Static getter for Intro</summary>
+		public static string GetIntro(IBasePage that) { return that.GetPropertyValue<string>("intro"); }
 
 		///<summary>
 		/// metadata
@@ -107,8 +163,23 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("metadata")]
 		public Epiphany.SeoMetadata.SeoMetadata Metadata
 		{
-			get { return this.GetPropertyValue<Epiphany.SeoMetadata.SeoMetadata>("metadata"); }
+			get { return GetMetadata(this); }
 		}
+
+		/// <summary>Static getter for metadata</summary>
+		public static Epiphany.SeoMetadata.SeoMetadata GetMetadata(IBasePage that) { return that.GetPropertyValue<Epiphany.SeoMetadata.SeoMetadata>("metadata"); }
+
+		///<summary>
+		/// Page Class: CSS Classname - DO NOT CHANGE !! (unless you know what you are doing, of course)
+		///</summary>
+		[ImplementPropertyType("pageClass")]
+		public string PageClass
+		{
+			get { return GetPageClass(this); }
+		}
+
+		/// <summary>Static getter for Page Class</summary>
+		public static string GetPageClass(IBasePage that) { return that.GetPropertyValue<string>("pageClass"); }
 
 		///<summary>
 		/// Page Title: Title of the page
@@ -116,17 +187,23 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle
 		{
-			get { return this.GetPropertyValue<string>("pageTitle"); }
+			get { return GetPageTitle(this); }
 		}
 
+		/// <summary>Static getter for Page Title</summary>
+		public static string GetPageTitle(IBasePage that) { return that.GetPropertyValue<string>("pageTitle"); }
+
 		///<summary>
-		/// Title image: Grote afbeelding. Wordt getoond bovenaan de pagina (volledige breedte), of op een overzichtspagina (verkleind). Minimum 1920px breedte op 420px hoog
+		/// Title image: Page Banner. Wordt getoond bovenaan de pagina (volledige breedte), of op een overzichtspagina (verkleind). Minimum 1920px breedte op 220px hoog
 		///</summary>
 		[ImplementPropertyType("titleImage")]
 		public IPublishedContent TitleImage
 		{
-			get { return this.GetPropertyValue<IPublishedContent>("titleImage"); }
+			get { return GetTitleImage(this); }
 		}
+
+		/// <summary>Static getter for Title image</summary>
+		public static IPublishedContent GetTitleImage(IBasePage that) { return that.GetPropertyValue<IPublishedContent>("titleImage"); }
 	}
 
 	/// <summary>SponsorBlock</summary>
@@ -155,12 +232,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Contact Info: Contact gegevens
+		/// Adres: Adres info
 		///</summary>
-		[ImplementPropertyType("contactInfo")]
-		public Archetype.Models.ArchetypeModel ContactInfo
+		[ImplementPropertyType("adres")]
+		public Archetype.Models.ArchetypeModel Adres
 		{
-			get { return this.GetPropertyValue<Archetype.Models.ArchetypeModel>("contactInfo"); }
+			get { return this.GetPropertyValue<Archetype.Models.ArchetypeModel>("adres"); }
 		}
 
 		///<summary>
@@ -179,6 +256,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Naam
 		{
 			get { return this.GetPropertyValue<string>("naam"); }
+		}
+
+		///<summary>
+		/// Website: Website
+		///</summary>
+		[ImplementPropertyType("website")]
+		public Archetype.Models.ArchetypeModel Website
+		{
+			get { return this.GetPropertyValue<Archetype.Models.ArchetypeModel>("website"); }
 		}
 	}
 
@@ -223,6 +309,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string OverOnsFooter
 		{
 			get { return this.GetPropertyValue<string>("overOnsFooter"); }
+		}
+
+		///<summary>
+		/// Subpages: List up pages for display in navigation
+		///</summary>
+		[ImplementPropertyType("subpages")]
+		public IEnumerable<IPublishedContent> Subpages
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("subpages"); }
 		}
 	}
 
@@ -367,6 +462,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Footer Block 4: Sitenavigation items displayed in footer - Right Bottom Block
+		///</summary>
+		[ImplementPropertyType("footerBlock4")]
+		public IEnumerable<IPublishedContent> FooterBlock4
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock4"); }
+		}
+
+		///<summary>
 		/// Main Navigation: Hoofdnavigatie
 		///</summary>
 		[ImplementPropertyType("mainNavigation")]
@@ -394,7 +498,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Over ons - Image: Afbeelding voor de homepage
+		/// Over ons - Image: Afbeelding voor de homepage. 1920px x 460px
 		///</summary>
 		[ImplementPropertyType("overOnsImage")]
 		public IPublishedContent OverOnsImage
@@ -578,6 +682,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string GoogleAnalyticsName
 		{
 			get { return this.GetPropertyValue<string>("googleAnalyticsName"); }
+		}
+
+		///<summary>
+		/// icon
+		///</summary>
+		[ImplementPropertyType("icon")]
+		public object Icon
+		{
+			get { return this.GetPropertyValue("icon"); }
 		}
 
 		///<summary>
@@ -802,7 +915,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Excerpt
+		/// Excerpt: Korte inhoud
 		///</summary>
 		[ImplementPropertyType("excerpt")]
 		public string Excerpt
@@ -932,6 +1045,558 @@ namespace Umbraco.Web.PublishedContentModels
 		public IHtmlString RichText
 		{
 			get { return this.GetPropertyValue<IHtmlString>("richText"); }
+		}
+	}
+
+	/// <summary>MagazineRoot</summary>
+	[PublishedContentModel("magazineRoot")]
+	public partial class MagazineRoot : BasePage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "magazineRoot";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public MagazineRoot(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MagazineRoot, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Cover recentste nummer
+		///</summary>
+		[ImplementPropertyType("coverRecentsteNummer")]
+		public IPublishedContent CoverRecentsteNummer
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("coverRecentsteNummer"); }
+		}
+
+		///<summary>
+		/// Huidige jaargang: Kalenderjaar van huidige jaargang
+		///</summary>
+		[ImplementPropertyType("huidigeJaargang")]
+		public int HuidigeJaargang
+		{
+			get { return this.GetPropertyValue<int>("huidigeJaargang"); }
+		}
+
+		///<summary>
+		/// Subpages: Subpages to show in navigation block
+		///</summary>
+		[ImplementPropertyType("subpages")]
+		public IEnumerable<IPublishedContent> Subpages
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("subpages"); }
+		}
+	}
+
+	/// <summary>MagazineNummer</summary>
+	[PublishedContentModel("magazineNummer")]
+	public partial class MagazineNummer : BasePage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "magazineNummer";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public MagazineNummer(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MagazineNummer, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Cover Image: Cover van het  nummer
+		///</summary>
+		[ImplementPropertyType("coverImage")]
+		public IPublishedContent CoverImage
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("coverImage"); }
+		}
+
+		///<summary>
+		/// In dit nummer: Teaser info over ProFFF nummer
+		///</summary>
+		[ImplementPropertyType("inDitNummer")]
+		public IHtmlString InDitNummer
+		{
+			get { return this.GetPropertyValue<IHtmlString>("inDitNummer"); }
+		}
+	}
+
+	/// <summary>StudiedagRoot</summary>
+	[PublishedContentModel("studiedagRoot")]
+	public partial class StudiedagRoot : BasePage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "studiedagRoot";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public StudiedagRoot(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<StudiedagRoot, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Ateliers Counter
+		///</summary>
+		[ImplementPropertyType("ateliersCounter")]
+		public string AteliersCounter
+		{
+			get { return this.GetPropertyValue<string>("ateliersCounter"); }
+		}
+
+		///<summary>
+		/// Bezoekers Counter: Aantal bezoekers vorige editie
+		///</summary>
+		[ImplementPropertyType("bezoekersCounter")]
+		public int BezoekersCounter
+		{
+			get { return this.GetPropertyValue<int>("bezoekersCounter"); }
+		}
+
+		///<summary>
+		/// Locatie Counter: Aantal locaties
+		///</summary>
+		[ImplementPropertyType("locatieCounter")]
+		public int LocatieCounter
+		{
+			get { return this.GetPropertyValue<int>("locatieCounter"); }
+		}
+
+		///<summary>
+		/// Sprekers Counter: Aantal sprekers
+		///</summary>
+		[ImplementPropertyType("sprekersCounter")]
+		public int SprekersCounter
+		{
+			get { return this.GetPropertyValue<int>("sprekersCounter"); }
+		}
+
+		///<summary>
+		/// Subpages: If this page is added to the main navigation, it can show a list of pages in a dropdown. Add them here.
+		///</summary>
+		[ImplementPropertyType("subpages")]
+		public IEnumerable<IPublishedContent> Subpages
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("subpages"); }
+		}
+	}
+
+	/// <summary>Studiedag Atelier</summary>
+	[PublishedContentModel("studiedagAtelier")]
+	public partial class StudiedagAtelier : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "studiedagAtelier";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public StudiedagAtelier(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<StudiedagAtelier, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Aantal plaatsen: Hoeveel plaatsen zijn er beschikbaar voor dit atelier
+		///</summary>
+		[ImplementPropertyType("aantalPlaatsen")]
+		public int AantalPlaatsen
+		{
+			get { return this.GetPropertyValue<int>("aantalPlaatsen"); }
+		}
+
+		///<summary>
+		/// Atelier Titel: Titel van het atelier
+		///</summary>
+		[ImplementPropertyType("atelierTitel")]
+		public string AtelierTitel
+		{
+			get { return this.GetPropertyValue<string>("atelierTitel"); }
+		}
+
+		///<summary>
+		/// Beschrijving: Korte beschrijving
+		///</summary>
+		[ImplementPropertyType("beschrijving")]
+		public string Beschrijving
+		{
+			get { return this.GetPropertyValue<string>("beschrijving"); }
+		}
+
+		///<summary>
+		/// Doelgroep: Voor wie is dit atelier bestemd?
+		///</summary>
+		[ImplementPropertyType("doelgroep")]
+		public string Doelgroep
+		{
+			get { return this.GetPropertyValue<string>("doelgroep"); }
+		}
+
+		///<summary>
+		/// End hour: Einde van het atelier
+		///</summary>
+		[ImplementPropertyType("endHour")]
+		public DateTime EndHour
+		{
+			get { return this.GetPropertyValue<DateTime>("endHour"); }
+		}
+
+		///<summary>
+		/// Group: In what timeblock is this atelier. For organizational purposes only.
+		///</summary>
+		[ImplementPropertyType("group")]
+		public int Group
+		{
+			get { return this.GetPropertyValue<int>("group"); }
+		}
+
+		///<summary>
+		/// Is een herhaling
+		///</summary>
+		[ImplementPropertyType("isEenHerhaling")]
+		public bool IsEenHerhaling
+		{
+			get { return this.GetPropertyValue<bool>("isEenHerhaling"); }
+		}
+
+		///<summary>
+		/// Is volzet: Is het atelier volzet?
+		///</summary>
+		[ImplementPropertyType("isVolzet")]
+		public bool IsVolzet
+		{
+			get { return this.GetPropertyValue<bool>("isVolzet"); }
+		}
+
+		///<summary>
+		/// jaar
+		///</summary>
+		[ImplementPropertyType("jaar")]
+		public int Jaar
+		{
+			get { return this.GetPropertyValue<int>("jaar"); }
+		}
+
+		///<summary>
+		/// Met de steun van
+		///</summary>
+		[ImplementPropertyType("metDeSteunVan")]
+		public string MetDeSteunVan
+		{
+			get { return this.GetPropertyValue<string>("metDeSteunVan"); }
+		}
+
+		///<summary>
+		/// Naam: Voornaam en naam van de spreker
+		///</summary>
+		[ImplementPropertyType("naam")]
+		public string Naam
+		{
+			get { return this.GetPropertyValue<string>("naam"); }
+		}
+
+		///<summary>
+		/// Nummer: Atelier nummer
+		///</summary>
+		[ImplementPropertyType("nummer")]
+		public int Nummer
+		{
+			get { return this.GetPropertyValue<int>("nummer"); }
+		}
+
+		///<summary>
+		/// Spreker Info: Additional info over de spreker
+		///</summary>
+		[ImplementPropertyType("sprekerInfo")]
+		public string SprekerInfo
+		{
+			get { return this.GetPropertyValue<string>("sprekerInfo"); }
+		}
+
+		///<summary>
+		/// Start hour: Begin van het atelier
+		///</summary>
+		[ImplementPropertyType("startHour")]
+		public DateTime StartHour
+		{
+			get { return this.GetPropertyValue<DateTime>("startHour"); }
+		}
+
+		///<summary>
+		/// Type: Type atelier
+		///</summary>
+		[ImplementPropertyType("type")]
+		public string Type
+		{
+			get { return this.GetPropertyValue<string>("type"); }
+		}
+	}
+
+	/// <summary>Studiedag - Locatie</summary>
+	[PublishedContentModel("basicContentPage11")]
+	public partial class BasicContentPage11 : PublishedContentModel, IBasePage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "basicContentPage11";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public BasicContentPage11(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BasicContentPage11, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Body Tekst: Content voor deze pagina
+		///</summary>
+		[ImplementPropertyType("bodyTekst")]
+		public IHtmlString BodyTekst
+		{
+			get { return this.GetPropertyValue<IHtmlString>("bodyTekst"); }
+		}
+
+		///<summary>
+		/// Breadcrumb: Value for the breadcrumb
+		///</summary>
+		[ImplementPropertyType("breadcrumb")]
+		public string Breadcrumb
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetBreadcrumb(this); }
+		}
+
+		///<summary>
+		/// Displayname: How this page is represented in the navigation
+		///</summary>
+		[ImplementPropertyType("displayname")]
+		public string Displayname
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetDisplayname(this); }
+		}
+
+		///<summary>
+		/// Hide in XML Sitemap
+		///</summary>
+		[ImplementPropertyType("hideInXMLSitemap")]
+		public bool HideInXmlsitemap
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetHideInXmlsitemap(this); }
+		}
+
+		///<summary>
+		/// icon: Icon to display on frontend
+		///</summary>
+		[ImplementPropertyType("icon")]
+		public object Icon
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetIcon(this); }
+		}
+
+		///<summary>
+		/// Intro: Korte inleiding, wordt getoond op de homepagina en op overzichtspagina's
+		///</summary>
+		[ImplementPropertyType("intro")]
+		public string Intro
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetIntro(this); }
+		}
+
+		///<summary>
+		/// metadata
+		///</summary>
+		[ImplementPropertyType("metadata")]
+		public Epiphany.SeoMetadata.SeoMetadata Metadata
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetMetadata(this); }
+		}
+
+		///<summary>
+		/// Page Class: CSS Classname - DO NOT CHANGE !! (unless you know what you are doing, of course)
+		///</summary>
+		[ImplementPropertyType("pageClass")]
+		public string PageClass
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetPageClass(this); }
+		}
+
+		///<summary>
+		/// Page Title: Title of the page
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Title image: Page Banner. Wordt getoond bovenaan de pagina (volledige breedte), of op een overzichtspagina (verkleind). Minimum 1920px breedte op 220px hoog
+		///</summary>
+		[ImplementPropertyType("titleImage")]
+		public IPublishedContent TitleImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetTitleImage(this); }
+		}
+	}
+
+	/// <summary>StudiedagProgrammaRoot</summary>
+	[PublishedContentModel("studiedagProgrammaRoot")]
+	public partial class StudiedagProgrammaRoot : PublishedContentModel, IBasePage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "studiedagProgrammaRoot";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public StudiedagProgrammaRoot(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<StudiedagProgrammaRoot, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Breadcrumb: Value for the breadcrumb
+		///</summary>
+		[ImplementPropertyType("breadcrumb")]
+		public string Breadcrumb
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetBreadcrumb(this); }
+		}
+
+		///<summary>
+		/// Displayname: How this page is represented in the navigation
+		///</summary>
+		[ImplementPropertyType("displayname")]
+		public string Displayname
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetDisplayname(this); }
+		}
+
+		///<summary>
+		/// Hide in XML Sitemap
+		///</summary>
+		[ImplementPropertyType("hideInXMLSitemap")]
+		public bool HideInXmlsitemap
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetHideInXmlsitemap(this); }
+		}
+
+		///<summary>
+		/// icon: Icon to display on frontend
+		///</summary>
+		[ImplementPropertyType("icon")]
+		public object Icon
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetIcon(this); }
+		}
+
+		///<summary>
+		/// Intro: Korte inleiding, wordt getoond op de homepagina en op overzichtspagina's
+		///</summary>
+		[ImplementPropertyType("intro")]
+		public string Intro
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetIntro(this); }
+		}
+
+		///<summary>
+		/// metadata
+		///</summary>
+		[ImplementPropertyType("metadata")]
+		public Epiphany.SeoMetadata.SeoMetadata Metadata
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetMetadata(this); }
+		}
+
+		///<summary>
+		/// Page Class: CSS Classname - DO NOT CHANGE !! (unless you know what you are doing, of course)
+		///</summary>
+		[ImplementPropertyType("pageClass")]
+		public string PageClass
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetPageClass(this); }
+		}
+
+		///<summary>
+		/// Page Title: Title of the page
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Title image: Page Banner. Wordt getoond bovenaan de pagina (volledige breedte), of op een overzichtspagina (verkleind). Minimum 1920px breedte op 220px hoog
+		///</summary>
+		[ImplementPropertyType("titleImage")]
+		public IPublishedContent TitleImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasePage.GetTitleImage(this); }
 		}
 	}
 

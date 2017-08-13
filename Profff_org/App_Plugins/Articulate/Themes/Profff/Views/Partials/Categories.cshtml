@@ -5,10 +5,10 @@
     var categories = Umbraco.GetAllCategories(Model);
 }
 
-<div class="widget">
+<div class="widget  articulate-categorylist">
     <h4>Categories</h4>
-    <div>
-        <ul id="categorylist">
+    <div class="content">
+        <ul id="categorylist" class="categorylist">
             @foreach (var c in categories)
             {
                 <li><a href="@Url.ArticulateCategoryUrl(Model, c)" title="Category: @c">@c</a></li>

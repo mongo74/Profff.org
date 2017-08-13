@@ -1,42 +1,37 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
-@{ 
-   var rootPage = Umbraco.TypedContentAtRoot().First();
-   var selection = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("secondLevelNavigation");
+@{
+    var rootPage = Umbraco.TypedContentAtRoot().First();
+    var selection = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("secondLevelNavigation");
 }
 
 @*
-<ul class="SecondaryMenu">
-    <li class="divider"><a href="/"><i class="iconBefore icon icon-home icon-fw"></i><span class="hidden-xs">Home</span></a></li>
-    <li class="divider"><a href="#"><i class="iconBefore icon icon-newspaper"></i><span class="hidden-xs">Nieuws</span></a></li>
-    <li class="divider"><a href="#"><i class="iconBefore icon icon-sys-help-2 icon-fw"></i><span class="hidden-xs">Over ons</span></a></li>
-    <li class=""><a href="#"><i class="fa fa-envelope iconBefore"></i><span class="hidden-xs">Contact</span></a></li>
-</ul>
-//var item = Umbraco.TypedContent(id);
+    <ul class="SecondaryMenu">
+        <li class="divider"><a href="/"><i class="iconBefore icon icon-home icon-fw"></i><span class="hidden-xs">Home</span></a></li>
+        <li class="divider"><a href="#"><i class="iconBefore icon icon-newspaper"></i><span class="hidden-xs">Nieuws</span></a></li>
+        <li class="divider"><a href="#"><i class="iconBefore icon icon-sys-help-2 icon-fw"></i><span class="hidden-xs">Over ons</span></a></li>
+        <li class=""><a href="#"><i class="fa fa-envelope iconBefore"></i><span class="hidden-xs">Contact</span></a></li>
+    </ul>
+    //var item = Umbraco.TypedContent(id);
 *@
 <!--//nav-toggle-->
 <ul class="SecondaryMenu">
-    @if(selection.Any())
+
+    <li class="divider"><a href="/"><i class="iconBefore si si-home si-fw"></i><span class="hidden-xs">Home</span></a></li>
+    @if (selection.Any())
     {
         foreach (var id in selection)
         {
-             
-         @*     var cts = ApplicationContext.Current.Services.ContentTypeService;
-            var content = cts.//.GetById(id);
-             var returnVal = content.ContentTypeId;
-        var content = contentService.GetById(1234);
-            return content.ContentType;
-            string pathToIcon = contentType.Icon; 
-            <p>contenttype = @String.Format("{0} - {1}", id, returnVal.ToString())
-            </p>*@
             <li class="divider">
-                
                 <a href="@id.Url">
-                <i class="icon umb-tree-icon sprTree icon-voice"></i>
-                <span class="hidden-xs">@id.GetPropertyValue("displayName")</span></a>
+
+                    <i class="si @id.GetPropertyValue("icon") iconBefore"></i>
+                    <span class="hidden-xs">@id.GetPropertyValue("displayName")</span>
+                </a>
             </li>
         }
     }
-    else{
+    else
+    {
         <li></li>
     }
 </ul>

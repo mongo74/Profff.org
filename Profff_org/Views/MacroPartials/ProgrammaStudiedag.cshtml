@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{ var selection = CurrentPage.Children.Where("Visible"); }
+<section class="studiedagAteliers">
+    <h2>Ateliers</h2>
+    @* Ensure that the Current Page has children *@
+    @if (selection.Any())
+    {
+        foreach (var item in selection)
+        {
+            @*<a href="@item.Url">@item.Name</a>*@
+            <div class="section-content clearfix">
+                <div class="col-md-2 col-sm-3 col-xs-12 ">
+                    <div class="atelierTile">
+                        <h3>
+                            @item.GetPropertyValue("nummer")
+                            <small>@item.GetPropertyValue("atelierTitel")</small>
+                        </h3>
+                        <span class="speaker">
+                           @item.GetPropertyValue("naam")
+                            <small>@item.GetPropertyValue("sprekerInfo")</small>
+                        </span>
+                        <div class="caption">
+                            <span class="targetAudience">
+                                <small><i class="icon icon-tag iconBefore"></i>
+                                @item.GetPropertyValue("doelgroep")</small>
+                            </span>
+                            <div class="practical">
+                                <span><i class="fa fa-clock-o iconBefore"></i>@item.startHour.ToString("HH:mm") - @item.endHour.ToString("HH:mm")</span>
+                                <div class="places"><i class="icon icon-group iconBefore" alt="plaatsen"></i>@item.GetPropertyValue("pageTitle")</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        }
+    }
+</section>

@@ -5,9 +5,8 @@
     var tagModel = Umbraco.GetPostTagCollection(Model);
 }
 
-<div class="widget tagcloud">
+<div class="widget articulate-tagcloud">
     <h4>Popular tags</h4>
-
     <div class="content">
         @Html.TagCloud(tagModel, 5, 50)
     </div>

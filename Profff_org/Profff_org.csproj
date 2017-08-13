@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Archetype, Version=1.13.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Archetype.Binaries.1.13.2\lib\net40\Archetype.dll</HintPath>
       <Private>True</Private>
@@ -294,6 +299,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
@@ -355,6 +364,10 @@
     </Reference>
     <Reference Include="UmbracoExamine, Version=0.7.0.40636, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.6.1\lib\net45\UmbracoExamine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -421,6 +434,117 @@
     <Content Include="App_Plugins\Epiphany.SeoMetadata\views\epiphany.seo.metadata.html" />
     <Content Include="App_Plugins\Epiphany.SeoMetadata\views\serp1.png" />
     <Content Include="App_Plugins\Epiphany.SeoMetadata\views\serp2.png" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\css\application.css" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\js\Calendar.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\defaultform.css" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\Email-Example\sample-image.jpg" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\Email-Example\umbraco-logo.png" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\moment\min\moment-with-locales.min.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\pikaday\pikaday.css" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\pikaday\pikaday.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\themes\default\style.css" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\themes\default\umbracoforms-conditions.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\themes\default\umbracoforms-dependencies.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\themes\default\umbracoforms.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-conditions.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-dependencies.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms.js" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkbox.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkboxlist.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\datepicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\dropdownlist.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\fileupload.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hiddenfield.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\password.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\radiobuttonlist.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\recaptcha.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\text.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\textarea.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\textfield.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\RenderTypes\date.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\RenderTypes\file.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\RenderTypes\member.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\RenderTypes\text.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\checkbox.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\documentmapper.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\dropdownlist.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\emailtemplatepicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\fieldmapper.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\file-upload.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\file.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\password.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\pickers.connectionstring.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\pickers.content.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\pickers.contentwithxpath.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\pickers.datatype.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\pickers.documenttype.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\textarea.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\textfield.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\textstring.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Dashboards\Activity.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Dashboards\Licensing.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Dashboards\YourForms.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\DataSource\delete.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\DataSource\dialogs\wizard.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\DataSource\edit.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\FormSecurity\edit.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\copy.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\create.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\delete.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\additem.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\entriesdetail.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\entriessettings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\fieldsetsettings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\fieldsettings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\formsettings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\dialogs\workflow.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\edit-legacy.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\edit.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\entries-legacy.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\entries.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\legacy-designer.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\fieldsetsettings\fieldset-settings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\fieldsettings\field-settings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\fieldtypepicker\field-type-picker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\formpicker\formpicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\themepicker\themepicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\workflows\submit-message-workflow-settings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\workflows\workflow-settings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\workflows\workflow-types.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\overlays\workflows\workflows-overview.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\views\design\design.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\views\settings\settings.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\workflows.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\PreValueSource\delete.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\PreValueSource\edit.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\PropertyEditors\formpicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\PropertyEditors\formpicker.prevalues.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\PropertyEditors\themepicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\css\umbraco.forms.css" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-content-picker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-designer-new.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-designer.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-entry-detail.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-inline-prevalue-editor.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-legacy-content-picker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-prevalue-editor.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-regexpicker.html" />
+    <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-render-type.html" />
+    <Content Include="App_Plugins\UmbracoForms\Fonts\icomoon.svg" />
+    <Content Include="App_Plugins\UmbracoForms\Images\close.png" />
+    <Content Include="App_Plugins\UmbracoForms\Images\recaptcha.png" />
+    <Content Include="App_Plugins\UmbracoForms\Images\succes-green.png" />
+    <Content Include="App_Plugins\UmbracoForms\Images\workflows\slack\icon.svg" />
+    <Content Include="App_Plugins\UmbracoForms\js\umbraco.forms.js" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\DataTables_json.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\DataTables_json_medtrust.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\excel.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\Html.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\postAsXmlSample.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\sendXsltEmailSample.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\Templates\Schema2\UmbracoContourListComments.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\Templates\UmbracoContourListComments.xslt" />
+    <Content Include="App_Plugins\UmbracoForms\Xslt\xml.xslt" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\fonts.css" />
@@ -437,16 +561,14 @@
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.svg" />
     <Content Include="Content\fonts\OpenSans-SemiboldItalic-webfont.svg" />
     <Content Include="Content\fonts\SAP-icons.svg" />
-    <Content Include="Content\Profff-Articulate.css">
-      <DependentUpon>Profff-Articulate.less</DependentUpon>
-    </Content>
-    <Content Include="Content\Profff-Articulate.min.css">
-      <DependentUpon>Profff-Articulate.css</DependentUpon>
-    </Content>
     <Content Include="Content\Profff.min.css" />
-    <Content Include="Content\SAP-icons.css" />
+    <Content Include="Content\SAPicons.css" />
     <Content Include="favicon.ico" />
     <Content Include="images\design\banner.jpg" />
+    <Content Include="images\design\Banner_library.jpg" />
+    <Content Include="images\design\Banner_OverOns.jpg" />
+    <Content Include="images\design\Banner_people01.jpg" />
+    <Content Include="images\design\Banner_Studiedag.jpg" />
     <Content Include="images\profff-2017_120.png" />
     <Content Include="images\profff-2017_200.png" />
     <Content Include="images\profff-2017_250.png" />
@@ -461,6 +583,7 @@
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\Styling.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -675,7 +798,6 @@
     <Content Include="Umbraco\Xslt\Web.config" />
     <Content Include="App_Plugins\Epiphany.SeoMetadata\package.manifest" />
     <Content Include="Views\BasePage.cshtml" />
-    <Content Include="Views\Partials\Site wide items\Footer.cshtml" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
@@ -718,10 +840,8 @@
     <Content Include="Content\fonts\SAP-icons.eot" />
     <Content Include="Content\fonts\SAP-icons.ttf" />
     <Content Include="Content\fonts\SAP-icons.woff" />
-    <Content Include="Views\Partials\Site wide items\SeoMetaData.cshtml" />
     <Content Include="Views\Partials\SiteComponents\Footer.cshtml" />
     <Content Include="Views\Partials\SiteComponents\MetadataBlock.cshtml" />
-    <Content Include="Views\Partials\SiteComponents\SponsorBlockFooter.cshtml" />
     <Content Include="Views\BaseContentBlock.cshtml" />
     <Content Include="Views\ContentPage.cshtml" />
     <Content Include="Views\HomePage.cshtml" />
@@ -779,13 +899,31 @@
     <Content Include="Views\MacroPartials\HomePage\AboutUsBlocks.cshtml" />
     <Content Include="Views\MacroPartials\Navigation\Main Navigation.cshtml" />
     <Content Include="Views\MacroPartials\Navigation\SecondLevel Navigation.cshtml" />
-    <Content Include="Content\Profff-Articulate.less" />
+    <Content Include="App_Plugins\UmbracoForms\Fonts\icomoon.eot" />
+    <Content Include="App_Plugins\UmbracoForms\Fonts\icomoon.ttf" />
+    <Content Include="App_Plugins\UmbracoForms\Fonts\icomoon.woff" />
+    <Content Include="App_Plugins\UmbracoForms\installed" />
+    <Content Include="App_Plugins\UmbracoForms\package.manifest" />
+    <Content Include="App_Plugins\UmbracoForms\RazorTemplates\HtmlTable.cshtml" />
+    <Content Include="App_Plugins\UmbracoForms\UmbracoForms.config" />
+    <Content Include="App_Plugins\UmbracoForms\version" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Views\MacroPartials\Navigation\Breadcrumb.cshtml" />
     <Content Include="Views\MacroPartials\Recurring Site Items\PageBanner.cshtml" />
+    <Content Include="Views\Partials\SiteComponents\NewsItems.cshtml" />
+    <Content Include="Views\Partials\SiteComponents\PageBanner.cshtml" />
+    <Content Include="Views\MagazineRoot.cshtml" />
+    <Content Include="Views\StudiedagAtelier.cshtml" />
+    <Content Include="Views\StudiedagRoot.cshtml" />
+    <Content Include="Views\Partials\SiteComponents\SponsorBlocks-fullContent.cshtml" />
+    <Content Include="Views\SponsorsPage.cshtml" />
+    <Content Include="Views\MacroPartials\HomePage\MagazineBlock.cshtml" />
+    <Content Include="Views\MacroPartials\HomePage\StudiedagBlock.cshtml" />
+    <Content Include="Views\StudiedagProgrammaRoot.cshtml" />
+    <Content Include="Views\MacroPartials\ProgrammaStudiedag.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3448,6 +3586,7 @@
   <ItemGroup>
     <Folder Include="App_Data\NuGetBackup\20170524-095544\Umbraco\" />
     <Folder Include="App_Data\NuGetBackup\20170524-095544\Umbraco_Client\" />
+    <Folder Include="Views\Partials\Site wide items\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

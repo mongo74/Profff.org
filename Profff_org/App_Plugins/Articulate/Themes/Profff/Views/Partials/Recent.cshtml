@@ -8,30 +8,27 @@
 
 <div class="widget recentposts">
     <h4>Recent posts</h4>
-
     <div class="content">
         <ul class="recentPosts" id="recentPosts">
             @foreach (var post in recent)
             {
                 <li>
-                    @if (!post.PostImageUrl.IsNullOrWhiteSpace())
-                    {
-                        var thumbnail = post.GetCropUrl("postImage", "thumbnail");
-                        if (!thumbnail.IsNullOrWhiteSpace())
+                    <a href="@post.Url">
+                        <h4>
+                            @post.Name
+                        </h4>
+                        <span><small><i class="fa fa-calendar iconBefore"></i> @post.PublishedDate.ToString("dd/MM/yyyy")</small></span>
+                        @if (!post.PostImageUrl.IsNullOrWhiteSpace())
                         {
-                            <img class="thumb" src="@thumbnail" alt="@post.Name" />
+                            var thumbnail = post.GetCropUrl("postImage", "thumbnail");
+                            if (!thumbnail.IsNullOrWhiteSpace())
+                            {
+                                <img class="thumb" src="@thumbnail" alt="@post.Name" />
+                            }
                         }
-                    }
-                    <div class="time">
-                        <time datetime="@post.PublishedDate">
-                            @post.PublishedDate.ToString("MMM d, yyyy HH:mm")
-                        </time>
-                    </div>
-
-                    <a href="@post.Url">@post.Name</a>
-                    <div>
-                        <a data-disqus-identifier="@post.GetContentKey()" class="comment-count" href="@post.Url#disqus_thread"></a>
-                    </div>
+                        <p>@post.Excerpt&hellip;</p>
+                        <span class="read-more" href="@post.Url">Lees verder<i class="fa fa-chevron-right iconBehind"></i></span>
+                    </a>
                 </li>
             }
         </ul>

@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{ var startNodeId = Model.MacroParameters["startNodeId"]; }
+@if (startNodeId != null)
+{
+    @* Get the starting page *@
+    var startNode = Umbraco.Content(startNodeId);
+    var blockOneItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock1");
+    var blockTwoItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock2");
+    var blockThreeItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock3");
+}
+    

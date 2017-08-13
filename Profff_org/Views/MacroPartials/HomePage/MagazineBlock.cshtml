@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var startNodeId = Model.MacroParameters["startNodeId"];
+    if (startNodeId != null)
+    {
+        var magazineRoot = Umbraco.Content(startNodeId);
+        if (magazineRoot.Children.Where("visible").Count() > 0)
+        {
+            var latestEdition = @magazineRoot.Children.First();
+            var backgroundImageUrl = "/images/design/banner_people01.jpg";
+            var backgroundImage = latestEdition.GetPropertyValue("coverImage");
+            backgroundImageUrl = backgroundImage.Url;
+            <section class="magazine clearfix DynamicBG" data-backgroundimage="@backgroundImageUrl">
+                <div class="right-agile">
+                    <h2>@Html.Raw(magazineRoot.GetPropertyValue("pageTitle"))</h2>
+                    <p>@magazineRoot.GetPropertyValue("intro")</p>
+                    <h3>Het laatste nummer</h3>
+                    @latestEdition.GetPropertyValue("inditnummer")
+                    <p><a href="#" class="btn">Pro<em>FFF</em> en ligne</a> </p>
+                </div>
+            </section>
+        }
+    }
+}

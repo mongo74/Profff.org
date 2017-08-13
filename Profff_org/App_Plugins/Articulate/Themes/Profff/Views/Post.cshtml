@@ -5,39 +5,50 @@
     Layout = "Master.cshtml";
     ViewBag.CssBodyClass = "post-template tag-sublime tag-javascript";
 }
-<div class="col-sm-9 main">
-    <article class="post tag-ghost-tag">
-        <h2 class="post-title">@Model.Name</h2>
-        <span class="post-meta">
-            <time datetime="@Model.PublishedDate.ToString("yyyy-MM-dd")">
-                <small>@Model.PublishedDate.ToString("dddd, MMMM dd, yyyy")</small>
-            </time>
-            <strong><i class="icon icon-user"></i>@Model.Author.Name</strong>
-        </span>
+<div class="col-md-8 col-sm-7 main">
+    <article class="news-item has-divider clearfix row">
+        <header>
+            <h2 class="post-title">@Model.Name</h2>
+            <span class="ArticleMetaData">
+                <time datetime="@Model.PublishedDate.ToString("dd/MM/yyyy")">
+                    <small><i class="si si-calendar iconBefore"></i> @Model.PublishedDate.ToString("dd/MM/yyyy")</small>
+                </time> -
+                <small>
+                    <strong><i class="si si-customer iconBefore"></i>@Model.Author.Name</strong>
+                </small>
+               </span>
+        </header>
+        <figure class="main-image">
+            @if (!Model.PostImageUrl.IsNullOrWhiteSpace())
+            {
+                var thumbnail = Model.GetCropUrl("postImage", "fullsize");
+                if (!thumbnail.IsNullOrWhiteSpace())
+                {
+                    <img class="img-responsive" src="@thumbnail" alt="@Model.Name" />
+                }
+            }
+        </figure>
 
         <section class="post-content">
-            @if (!Model.PostImageUrl.IsNullOrWhiteSpace())
-        {
-            var cropUrl = Model.GetCropUrl("postImage", "blogPost");
-            
-            if (!cropUrl.IsNullOrWhiteSpace())
-            {
-            <img class="postImage" alt="@Model.Name" src="@cropUrl" />
-            }
-        }
-            @Model.Body 
-            <small>@Html.ThemedPartial(Model, "PostTags")</small>
+            @Model.Body
         </section>
 
         <footer class="post-footer">
-            @if (Model.EnableComments)
-        {
-            @Html.ThemedPartial(Model, "CommentsDisqus")
-        }
+
+
         </footer>
 
     </article>
 </div>
-<aside class="col-sm-3">
+<aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
     @Html.ThemedPartial(Model, "SideWidgets")
 </aside>
+
+
+@section breadCrumb{
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a><span class="divider"></span></li>
+        <li><a href="/nieuws">Nieuws</a><span class="divider"></span></li>
+        <li class="active">@Model.Name</li>
+    </ul>
+}

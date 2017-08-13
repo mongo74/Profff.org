@@ -1,7 +1,15 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = "BasePage.cshtml";
+    Layout = "BasePage.cshtml";
 }
-
+<!-- VZW : BEGIN -->
 
 @Umbraco.RenderMacro("HomePageAboutUsBlocks")
+<!-- VZW : END -->
+<!-- NEWS : BEGIN -->
+@Html.Partial("SiteComponents/NewsItems")
+<!-- NEWS : END -->
+
+@Umbraco.RenderMacro("MagazineBlock", new { startNodeId = "1172" })
+
+@Umbraco.RenderMacro("StudiedagBlock", new {startNodeId="1181"})

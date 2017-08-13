@@ -1,18 +1,22 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.BasicContentPage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = "BasePage.cshtml";
 }
 
-@* the fun starts here *@
 @Umbraco.RenderMacro("Breadcrumb")
 
 <div class="content">
-    @Umbraco.RenderMacro("PageBanner")
-
+    @Html.Partial("SiteComponents/PageBanner")
     <section class="BodyContent">
         <div class="container">
             <div class="row">
-                @RenderBody()
+                <section class="intro">
+                    <p>@Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)</p>
+                </section>
+                <section class="bodycontent">
+                    @Html.Raw(Umbraco.Field("bodyTekst"))
+                </section>
             </div>
         </div>
     </section>

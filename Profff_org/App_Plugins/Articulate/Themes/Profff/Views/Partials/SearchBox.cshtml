@@ -1,9 +1,15 @@
 @using Articulate
 @model Articulate.Models.IMasterModel
 
-<div class="articulate-search">
+<div class="articulate-search form-group">
     <form method="get" action="@Url.ArticulateSearchUrl(Model)">
-        <input type="text" name="term" placeholder="Search..." />
-        <button type="submit" class="btn btn-primary">Search</button>
+        <label for="term" class="control-label col-xs-10">Vind een artikel</label>
+        <div class="col-xs-10">
+            
+            <input type="text" name="term" placeholder="Trefwoord" class="form-control" id="term" />
+        </div>
+        <div class="col-xs-2">
+            <button type="submit" class="btn btn-primary btn-sm"><i class="si si-search icon-lg"></i></button>
+        </div>
     </form>
 </div>

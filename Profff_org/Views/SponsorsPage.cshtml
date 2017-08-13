@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "BasePage.cshtml";
+}
+<div class="content">
+    @Html.Partial("SiteComponents/PageBanner")
+    <section class="BodyContent">
+        <div class="container">
+            <div class="row">
+                <section class="intro">
+                    <p>@Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)</p>
+                </section>
+                <section class="bodycontent">
+                    @Html.Raw(Umbraco.Field("bodyTekst"))
+                </section>
+                <section class="bodycontent">
+                  @Html.Partial("SiteComponents/SponsorBlocks-fullContent")
+                </section>
+            </div>
+        </div>
+    </section>
+</div>

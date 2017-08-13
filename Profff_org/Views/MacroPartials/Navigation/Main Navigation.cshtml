@@ -1,1 +1,61 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var rootPage = Umbraco.TypedContentAtRoot().First();
+    var selection = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("mainNavigation");
+}
+
+<ul class="nav navbar-nav">
+    <li class="active nav-item">
+        <a href="/"><i class="si si-home si-fw si-lg iconBefore"></i></a>
+    </li>
+@*  <li class="nav-item dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+           data-delay="0" data-close-others="false" href="#">Pro<em>FFF</em><i class="iconBehind fa fa-angle-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Het laatste nummer</a></li>
+            <li><a href="#"><i class="iconBefore icon-shelf icon-fw icon"></i>Archief</a></li>
+            <li><a href="#"><i class="iconBefore fa-archive fa"></i>Pro<em>FFF</em> en ligne</a></li>
+            <li><a href="/Html/FormPage.html">Form page</a></li>
+            <li><a href="/Html/TablePAge.html">Table page</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0"
+           data-close-others="false" href="#">Studiedag<i class="fa fa-angle-down iconBehind"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="/Html/Studiedag.html">Alle informatie</a></li>
+            <li><a href="#">Programma</a></li>
+            <li><a href="#">Inschrijvingsvoorwaarden</a></li>
+            <li><a href="#">Inschrijvingen</a></li>
+        </ul>
+    </li>
+    <li class="nav-item"><a href="#">Haiku wedstrijd</a></li>
+    <li class="nav-item"><a href="#">Francoform</a></li>
+    <li class="nav-item"><a href="#">Formacom</a></li>
+*@
+
+ @if (selection.Any())
+{
+    foreach (var id in selection)
+    {
+        var subSelection = id.GetPropertyValue<IEnumerable<IPublishedContent>>("subpages");
+        if(subSelection.Any())
+        {
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0"
+           data-close-others="false" href="@id.Url">@Html.Raw(id.GetPropertyValue("displayName"))<i class="fa fa-angle-down iconBehind"></i></a>
+                <ul  class="dropdown-menu">
+                    @foreach (var subItem in subSelection)
+                    {
+                        <li><a href="@subItem.Url">@Html.Raw(subItem.GetPropertyValue("displayName"))</a></li>
+                    }
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li  class="nav-item"><a href="@id.Url">@Html.Raw(id.GetPropertyValue("displayName"))</a></li>
+        }
+    }
+}
+</ul>

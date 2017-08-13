@@ -6,103 +6,77 @@
 @{
     Layout = "Master.cshtml";
 }
-<!-- Profff Blog-->
-<div class="col-sm-9 main">
-
+<div class="col-md-8 col-sm-7 main">
     @if (!Model.Children.Any())
     {
-        <article>No blog posts found</article>
+    <header>
+        <p><strong>0</strong> artikels</p>
+    </header>
     }
     else
     {
-        <p><strong>@Model.Children.Count()</strong> artikels</p>
 
-        <div class="blog-grid row">
-            @foreach (var post in Model.Children<PostModel>())
-                {
-                <!-- masonry grid item start -->
-
-                <div class="col-sm-6 news-item">
-                    <h4><a href="#">Verkoop van wijnen !</a></h4>
-                    <span><small><i class="icon icon-calendar iconBefore"></i> @post.PublishedDate.ToString("dd/MM/yyyy")</small></span>
-                    @*<img class="thumb" src="images/design/house.jpg" alt="" />*@
-                    @if (!post.PostImageUrl.IsNullOrWhiteSpace())
-                    {
-                        var thumbnail = post.GetCropUrl("postImage", "thumbnail");
-                        if (!thumbnail.IsNullOrWhiteSpace())
-                        {
-                            <img class="thumb" src="@thumbnail" alt="@post.Name" />
-                        }
-                    }
-                    <p>@post.Excerpt&hellip;</p>
-                    <p>
-                        <span><small></small></span>
-                    </p>
-                    <a class="read-more" href="@post.Url">Read more<i class="fa fa-chevron-right iconBehind"></i></a>
-                </div>
-
-                    <!-- blogpost start -->
-                @*<article class="blogpost">
-                        <header>
-                            <h2><a href="@post.Url">@post.Name</a></h2>
-                            <div class="post-info">
-                                <small>
-                                    <time datetime="@post.PublishedDate.ToString("yyyy-MM-dd")">
-                                        <i class="icon icon-calendar"></i>
-                                        @post.PublishedDate.ToString("dddd, MMMM dd, yyyy")
-                                    </time>
-                                    <span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-                                </small>
-                            </div>
-                        </header>
-                        <div class="blogpost-content">
-                            <p>
-                                @post.Excerpt&hellip;
-                            </p>
-                        </div>
-                        <footer class="clearfix">
-                            <small>
-                                <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-                                <div class="link pull-right"><i class="icon-link"></i><a href="@post.Url">Read More</a></div>
-                            </small>
-                        </footer>
-                    </article>*@
-                    <!-- blogpost end -->
-
-				<!-- masonry grid item end -->
-                }
-        </div>
-
-        @*foreach (var post in Model.Children<PostModel>())
+    <header>
+        @if (Model.Children.Count() > 1)
             {
-                <article class="post tag-ghost-tag">
-                    <header class="post-header">
-                        <span class="post-meta">
-                            <time datetime="@post.PublishedDate.ToString("yyyy-MM-dd")">
-                                @post.PublishedDate.ToString("dddd, MMMM dd, yyyy")
-                            </time>
+            <p><strong>@Model.Children.Count()</strong> artikels</p>
 
-                        </span>
-                        <h2 class="post-title"><a href="@post.Url">@post.Name</a></h2>
-                    </header>
-                    <section class="post-excerpt">
-                        @if (!post.PostImageUrl.IsNullOrWhiteSpace())
-                    {
-                        var thumbnail = post.GetCropUrl("postImage", "thumbnail");
-                        if (!thumbnail.IsNullOrWhiteSpace())
-                        {
-                                <img class="thumb" src="@thumbnail" alt="@post.Name" />
-                            }
-                        }
-                        <p>@post.Excerpt&hellip;</p>
-                        <small>@Html.ThemedPartial(Model, "PostTags", post)</small>
-                    </section>
-                </article>
             }
-            @Html.ThemedPartial(Model, "Pager", Model.Pages)*@
-    }
+            else
+            {
+            <p><strong>1</strong> artikel</p>
+            }
 
+
+
+    </header>
+
+        foreach (var post in Model.Children<PostModel>())
+        {
+    <article class="news-item has-divider clearfix row">
+        <a href="@post.Url">
+            <h3>
+                @post.Name
+            </h3>
+            <figure class="thumb col-md-2 col-sm-3 col-xs-4">
+                @if (!post.PostImageUrl.IsNullOrWhiteSpace())
+                {
+                    var thumbnail = post.GetCropUrl("postImage", "thumbnail");
+                    if (!thumbnail.IsNullOrWhiteSpace())
+                    {
+                        <img class="img-responsive" src="@thumbnail" alt="@post.Name" />
+                    }
+                }
+            </figure>
+            <div class="details col-md-9 col-sm-8 col-xs-7 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                <span class="ArticleMetaData">
+                    <small>
+                        <i class="si si-calendar iconBefore"></i> @post.PublishedDate.ToString("dd/MM/yyyy")
+                        - <i class="si si-customer iconBefore"></i> @post.Author.Name
+                    </small>
+                </span>
+                <p>
+                    @post.Excerpt&hellip;
+                </p>
+                <span class="read-more">Lees verder<i class="fa fa-chevron-right iconBehind"></i></span>
+
+            </div>
+        </a>
+    </article>
+        }
+
+    <footer>
+        @Html.ThemedPartial(Model, "Pager", Model.Pages)
+    </footer>
+    }
 </div>
-<aside class="col-sm-3">
+<aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
     @Html.ThemedPartial(Model, "SideWidgets")
 </aside>
+
+@section breadCrumb{
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a><span class="divider"></span></li>
+        <li class="active">@Model.Name</li>
+    </ul>
+}

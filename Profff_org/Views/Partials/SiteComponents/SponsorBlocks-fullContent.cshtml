@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Archetype.Models;
+@using Archetype.Extensions;
+
+@{ var selection = CurrentPage.Children.Where("Visible").OrderBy("Name"); }
+
+@foreach (var item in selection)
+{
+    <div class="col-md-4 col-sm-4 col-xs-12 SponsorBlock">
+        <h4>@item.Name</h4>
+
+        @{
+            var image = item.GetPropertyValue<IPublishedContent>("logo");
+            if (image != null)
+            {
+                <img src="@image.Url" alt="@item.Name" class="logo" />
+            }
+        }
+        <address>
+            <small>
+                @{
+                    foreach (var prop in item.GetPropertyValue<ArchetypeModel>("adres"))
+                    {
+                        <i class="fa fa-map-marker pull-left iconBefore"></i>@prop.GetValue("adress1")<br />
+                        <span> @prop.GetValue("adress2")</span>
+                        <span> @prop.GetValue("land")</span>
+                        <i class="fa fa-phone iconBefore"></i> @prop.GetValue("tel")<br />
+                        <a href="mailto:@prop.GetValue("email")">
+                            <i class="fa fa-envelope iconBefore"></i> @prop.GetValue("email")
+                        </a><br />
+                    }
+                    foreach (var prop in item.GetPropertyValue<ArchetypeModel>("website"))
+                    {
+                        <a href="http://@prop.GetValue("url")" alt="@prop.GetValue("tooltip")" target="_blank">
+                            <i class="fa fa-globe iconBefore"></i>@prop.GetValue("url")
+                        </a>
+                    }
+                }
+            </small>
+        </address>
+    </div>
+}

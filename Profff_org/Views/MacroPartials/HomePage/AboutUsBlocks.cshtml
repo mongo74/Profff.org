@@ -1,15 +1,24 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
 @{ 
- 
-   var rootPage = Umbraco.TypedContentAtRoot().First();
-   var showBlock = bool.Parse(rootPage.GetPropertyValue("overOnsDisplay").ToString());
-   var selection = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("overOnsContentBlocks");
- 
+
+    var rootPage = Umbraco.TypedContentAtRoot().First();
+    var showBlock = bool.Parse(rootPage.GetPropertyValue("overOnsDisplay").ToString());
+    var selection = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("overOnsContentBlocks");
+
+    var backgroundImageUrl = "/images/design/banner_people.jpg";
+    if (CurrentPage.HasValue("overonsImage"))
+    {
+        var backgroundImage = CurrentPage.GetPropertyValue<IPublishedContent>("overonsImage");
+        if (backgroundImage != null)
+        {
+            backgroundImageUrl = backgroundImage.Url;
+        }
+    }
 }
 
-@if(@showBlock){
+@if (@showBlock){
     <!-- VZW : BEGIN -->
-    <section class="vzw clearfix">
+    <section class="vzw clearfix DynamicBG" data-backgroundimage="@backgroundImageUrl" data-backgroundcolor="Olive">
     <div class="container">
     @if(selection.Any())
     {
@@ -20,6 +29,7 @@
                     <div class="vzw-box">
                         <h3>@id.GetPropertyValue("pageTitle")</h3>
                         <p>@id.GetPropertyValue("intro")</p>
+                        <a class="btn btn-default" href="@id.Url"> @Umbraco.GetDictionaryValue("ReadMore")<i class="si-sm  si si-open-command-field iconBehind"></i></a>
                     </div>
                 </div>
             }
@@ -28,6 +38,4 @@
     </div>
     </section>
     <!-- VZW : END -->
-}
-                    
-       
+}                        

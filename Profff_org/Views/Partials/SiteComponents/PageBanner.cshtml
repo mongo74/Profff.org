@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var backgroundImageUrl = "/images/design/banner_people01.jpg";
+    if (CurrentPage.HasValue("titleImage"))
+    {
+        var backgroundImage = CurrentPage.GetPropertyValue<IPublishedContent>("titleImage");
+        if (backgroundImage != null)
+        {
+            backgroundImageUrl = backgroundImage.Url;
+        }
+    }
+}
+
+<section class="PageBanner DynamicBG" data-backgroundimage="@backgroundImageUrl">
+    <div class="container">
+        <h1 class="PageTitle">
+            @Umbraco.Field("pageTitle", encoding: RenderFieldEncodingType.Html, convertLineBreaks: true)
+        </h1>
+    </div>
+</section>

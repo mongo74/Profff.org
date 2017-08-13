@@ -1,49 +1,70 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
 @using ContentModels = Umbraco.Web.PublishedContentModels;
+@using Umbraco.Core.Models;
+@using Umbraco.Core.Services;
 @{
     Layout = null;
-}
+
+    Html.RequiresCss("~/Content/bootstrap.min.css", 1);
+    Html.RequiresCss("~/Content/fonts.css", 2);
+    Html.RequiresCss("~/Content/font-awesome.css", 3);
+    Html.RequiresCss("~/Content/SAPicons.css", 4);
+    /* Html.RequiresCss("~/Content/Profff.min.css", 5);*/
+
+    Html.RequiresJs("~/scripts/jquery-1.9.1.min.js", 1);
+    Html.RequiresJs("~/scripts/bootstrap.min.js", 2);
+    Html.RequiresJs("~/scripts/plugins/jquery.countTo.js", 3);
+    Html.RequiresJs("~/scripts/Styling.js", 4);
+    }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@Html.Partial("SiteComponents/MetadataBlock")
+    @Html.Partial("SiteComponents/MetadataBlock")
 
     <!-- Global CSS -->
-    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="/Content/bootstrap.min.css" rel="stylesheet" />*@
 
     <!-- FONTS CSS-->
-    <link href="/Content/fonts.css" rel="stylesheet" />
-    <link href="/Content/font-awesome.css" rel="stylesheet" />
-    <link href="/Content/SAP-icons.css" rel="stylesheet" />
+    @*<link href="/Content/fonts.css" rel="stylesheet" />
+        <link href="/Content/font-awesome.css" rel="stylesheet" />
+        <link href="/Content/SAPicons.css" rel="stylesheet" />*@
+
     <!-- Plugins CSS -->
-    <!--<link rel="stylesheet" href="./Responsive website template for education_files/font-awesome.css">
-    <link rel="stylesheet" href="./Responsive website template for education_files/flexslider.css">
-    <link rel="stylesheet" href="./Responsive website template for education_files/prettyPhoto.css">-->
     <!-- Theme CSS -->
     <!-- ProFFF CSS-->
     <link href="/Content/Profff.min.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- BOOTSTRAP SCRIPTS-->
+    @*@Html.RequiresJsFolder("~/scripts/");
+        @Html.RequiresCssFolder("~/Content/");*@
+
+
+    @Html.RenderCssHere()
 
 </head>
 
-<body class="home-page">
+<body class='@Model.Content.GetPropertyValue("pageClass")'>
     <div class="wrapper">
-    @Html.Partial("SiteComponents/Header")
-        
-    
+        @Html.Partial("SiteComponents/Header")
         @RenderBody()
-   
     </div>
- 
+    @Html.Partial("SiteComponents/Footer")
 
+    <!--Javascript -->
+ @*   <script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
 
-@Html.Partial("SiteComponents/Footer")
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/plugins/jquery.countTo.js"></script>
+    <script type="text/javascript" src="~/scripts/Styling.js"></script>*@
+    <!-- End Javascript-->
+
+    @Html.RenderJsHere()
 </body>
 </html>

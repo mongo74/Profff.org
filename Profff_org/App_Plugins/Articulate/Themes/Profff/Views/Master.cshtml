@@ -5,6 +5,17 @@
 @{
     // create your own umbraco context
     var umbraco = new UmbracoHelper(UmbracoContext.Current);
+
+    Html.RequiresCss("~/Content/bootstrap.min.css", 1);
+    Html.RequiresCss("~/Content/fonts.css", 2);
+    Html.RequiresCss("~/Content/font-awesome.css", 3);
+    Html.RequiresCss("~/Content/SAPicons.css", 4);
+    Html.RequiresCss("~/Content/Profff.min.css", 5);
+
+    Html.RequiresJs("~/scripts/jquery-1.9.1.min.js", 1);
+    Html.RequiresJs("~/scripts/bootstrap.min.js", 2);
+    Html.RequiresJs("~/scripts/plugins/jquery.countTo.js", 3);
+    Html.RequiresJs("~/scripts/Styling.js", 4);
 }
 <!DOCTYPE html>
 <html>
@@ -29,37 +40,38 @@
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    @{ Html
-                                         .RequiresJs("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
-                                         .RequiresThemedCssFolder(Model);
-    }
+    @*@{ Html
+            .RequiresJs("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+            .RequiresThemedCssFolder(Model);
+        }*@
     <!-- Bootstrap CSS -->
-    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="/Content/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- FONTS CSS-->
-    <link href="/Content/fonts.css" rel="stylesheet" />
-    <link href="/Content/font-awesome.css" rel="stylesheet" />
-    <link href="/Content/SAP-icons.css" rel="stylesheet" />
+        <!-- FONTS CSS-->
+        <link href="/Content/fonts.css" rel="stylesheet" />
+        <link href="/Content/font-awesome.css" rel="stylesheet" />
+        <link href="/Content/SAPicons.css" rel="stylesheet" />
 
-    <!-- Global CSS -->
-    <link href="/Content/Profff.min.css" rel="stylesheet" />
+        <!-- Global CSS -->
+        <link href="/Content/Profff.min.css" rel="stylesheet" />
 
-    <!-- Blog  CSS -->
-    <link href="~/Content/Profff-Articulate.min.css" rel="stylesheet" />
+        <!-- Blog  CSS -->
+        <link href="~/Content/Profff-Articulate.min.css" rel="stylesheet" />*@
+
+    @Html.RenderCssHere()
 </head>
-<body class="">
+<body class="blog-page">
     <div class="wrapper">
         @Html.Partial("SiteComponents/Header")
-
-        <section class="PageBanner">
-            <img src="/images/design/banner.jpg" class="hidden-xs" />
+        <div class="BreadcrumbBlock hidden-xs">
             <div class="container">
-                <h1 class="PageTitle">
-                    @Model.BlogTitle
-                </h1>
+                @RenderSection("breadCrumb")
+
+
             </div>
-        </section>
-        <section class="BodyContent">
+        </div>
+        @Html.Partial("SiteComponents/PageBanner")
+        <section class="content">
             <div class="container">
                 <div class="row">
                     @RenderBody()
@@ -68,6 +80,7 @@
         </section>
     </div>
     @Html.Partial("SiteComponents/Footer")
+
     @Html.RenderJsHere()
     @Html.GoogleAnalyticsTracking(Model)
 </body>

@@ -1,11 +1,31 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = "ContentPage.cshtml";
+	Layout = "BasePage.cshtml";
 }
-<h2>
-    @Umbraco.Field("nodeType")
-</h2>
-<p>
-    
-    @Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)
-</p>
+@{ var selection = CurrentPage.Children.Where("Visible").OrderBy("Name"); }
+
+@Umbraco.RenderMacro("Breadcrumb")
+
+<div class="content">
+    @Html.Partial("SiteComponents/PageBanner")
+    <section class="BodyContent">
+        <div class="container">
+            <div class="row">
+                <section class="intro">
+                    <p>@Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)</p>
+                </section>
+                <section class="bodycontent">
+                    @Html.Raw(Umbraco.Field("bodyTekst"))
+                </section>
+                <section class="bodycontent">
+                    <ul>
+                        @foreach (var item in selection)
+                        {
+                            <li><a href="@item.Url">@item.Name</a></li>
+                        }
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>

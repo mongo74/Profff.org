@@ -1,0 +1,2736 @@
+
+@font-face {
+    font-family: 'SAP-icons';
+    src: url('fonts/SAP-icons.eot');
+    src: url('fonts/SAP-icons.ttf') format('truetype'), 
+        url('fonts/SAP-icons.woff') format('woff'), 
+        url('fonts/SAP-icons.eot') format('eot'), /* IE9+ */
+        url('fonts/SAP-icons.svg#webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your SAP-s */
+[data-si]:before {
+    font-family: 'SAP-icons';
+    content: attr(data-si);
+    speak: none;
+}
+
+.si {
+    display: inline-block;
+    font: normal normal normal 14px/1 SAP-SAP-s;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+
+.si-sm {
+    font-size: 0.70em;
+}
+
+/* makes the font 33% larger relative to the SAP- container */
+.si-lg {
+    font-size: 1.33333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+}
+
+.si-2x {
+    font-size: 2em;
+}
+
+.si-3x {
+    font-size: 3em;
+}
+
+.si-4x {
+    font-size: 4em;
+}
+
+.si-5x {
+    font-size: 5em;
+}
+
+.si-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+
+.si-ul {
+    padding-left: 0;
+    margin-left: 2.14285714em;
+    list-style-type: none;
+}
+
+.si-ul > li {
+    position: relative;
+}
+
+.si-li {
+    position: absolute;
+    left: -2.14285714em;
+    width: 2.14285714em;
+    top: 0.14285714em;
+    text-align: center;
+}
+
+    .si-li.si-lg {
+        left: -1.85714286em;
+    }
+
+.si-border {
+    padding: .2em .25em .15em;
+    border: solid 0.08em #eeeeee;
+    border-radius: .1em;
+}
+
+
+
+.si.pull-left {
+    margin-right: .3em;
+}
+
+.si.pull-right {
+    margin-left: .3em;
+}
+
+.si-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+}
+
+.si-pulse {
+    -webkit-animation: fa-spin 1s infinite steps(8);
+    animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes si-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes si-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+.si-rotate-90 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.si-rotate-180 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.si-rotate-270 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.si-flip-horizontal {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+    -webkit-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.si-flip-vertical {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+    -webkit-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1);
+}
+
+:root .si-rotate-90,
+:root .si-rotate-180,
+:root .si-rotate-270,
+:root .si-flip-horizontal,
+:root .si-flip-vertical {
+    filter: none;
+}
+
+
+
+.si-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+}
+
+.si-stack-1x,
+.si-stack-2x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.si-stack-1x {
+    line-height: inherit;
+}
+
+.si-stack-2x {
+    font-size: 2em;
+}
+
+.si-inverse {
+    color: #ffffff;
+}
+
+/* Use the following CSS code if you want to have a class per SAP- */
+[class^="si-"]:before, [class*=" si-"]:before {
+    font-family: 'SAP-icons';
+    font-style: normal;
+    speak: none;
+}
+
+.si-accidental-leave:before {
+    content: "\e000";
+}
+
+.si-account:before {
+    content: "\e001";
+}
+
+.si-wrench:before {
+    content: "\e002";
+}
+
+.si-windows-doors:before {
+    content: "\e003";
+}
+
+.si-washing-machine:before {
+    content: "\e004";
+}
+
+.si-visits:before {
+    content: "\e005";
+}
+
+.si-video:before {
+    content: "\e006";
+}
+
+.si-travel-expense:before {
+    content: "\e007";
+}
+
+.si-temperature:before {
+    content: "\e008";
+}
+
+.si-task:before {
+    content: "\e009";
+}
+
+.si-synchronize:before {
+    content: "\e00a";
+}
+
+.si-survey:before {
+    content: "\e00b";
+}
+
+.si-settings:before {
+    content: "\e00c";
+}
+
+.si-search:before {
+    content: "\e00d";
+}
+
+.si-sales-document:before {
+    content: "\e00e";
+}
+
+.si-retail-store:before {
+    content: "\e00f";
+}
+
+.si-refresh:before {
+    content: "\e010";
+}
+
+.si-product:before {
+    content: "\e011";
+}
+
+.si-present:before {
+    content: "\e012";
+}
+
+.si-ppt-attachment:before {
+    content: "\e013";
+}
+
+.si-pool:before {
+    content: "\e014";
+}
+
+.si-pie-chart:before {
+    content: "\e015";
+}
+
+.si-picture:before {
+    content: "\e016";
+}
+
+.si-photo-voltaic:before {
+    content: "\e017";
+}
+
+.si-phone:before {
+    content: "\e018";
+}
+
+.si-pending:before {
+    content: "\e019";
+}
+
+.si-pdf-attachment:before {
+    content: "\e01a";
+}
+
+.si-past:before {
+    content: "\e01b";
+}
+
+.si-outgoing-call:before {
+    content: "\e01c";
+}
+
+.si-opportunity:before {
+    content: "\e01d";
+}
+
+.si-opportunities:before {
+    content: "\e01e";
+}
+
+.si-notes:before {
+    content: "\e01f";
+}
+
+.si-money-bills:before {
+    content: "\e020";
+}
+
+.si-map:before {
+    content: "\e021";
+}
+
+.si-log:before {
+    content: "\e022";
+}
+
+.si-line-charts:before {
+    content: "\e023";
+}
+
+.si-lightbulb:before {
+    content: "\e024";
+}
+
+.si-leads:before {
+    content: "\e025";
+}
+
+.si-lead:before {
+    content: "\e026";
+}
+
+.si-laptop:before {
+    content: "\e027";
+}
+
+.si-kpi-managing-my-area:before {
+    content: "\e028";
+}
+
+.si-kpi-corporate-performance:before {
+    content: "\e029";
+}
+
+.si-incoming-call:before {
+    content: "\e02a";
+}
+
+.si-inbox:before {
+    content: "\e02b";
+}
+
+.si-horizontal-bar-chart:before {
+    content: "\e02c";
+}
+
+.si-history:before {
+    content: "\e02d";
+}
+
+.si-heating-cooling:before {
+    content: "\e02e";
+}
+
+.si-gantt-bars:before {
+    content: "\e02f";
+}
+
+.si-future:before {
+    content: "\e030";
+}
+
+.si-fridge:before {
+    content: "\e031";
+}
+
+.si-fallback:before {
+    content: "\e032";
+}
+
+.si-expense-report:before {
+    content: "\e033";
+}
+
+.si-excel-attachment:before {
+    content: "\e034";
+}
+
+.si-energy-saving-lightbulb:before {
+    content: "\e035";
+}
+
+.si-employee:before {
+    content: "\e036";
+}
+
+.si-email:before {
+    content: "\e037";
+}
+
+.si-edit:before {
+    content: "\e038";
+}
+
+.si-duplicate:before {
+    content: "\e039";
+}
+
+.si-download:before {
+    content: "\e03a";
+}
+
+.si-doc-attachment:before {
+    content: "\e03b";
+}
+
+.si-dishwasher:before {
+    content: "\e03c";
+}
+
+.si-delete:before {
+    content: "\e03d";
+}
+
+.si-decline:before {
+    content: "\e03e";
+}
+
+.si-complete:before {
+    content: "\e03f";
+}
+
+.si-competitor:before {
+    content: "\e040";
+}
+
+.si-collections-management:before {
+    content: "\e041";
+}
+
+.si-chalkboard:before {
+    content: "\e042";
+}
+
+.si-cart:before {
+    content: "\e043";
+}
+
+.si-card:before {
+    content: "\e044";
+}
+
+.si-camera:before {
+    content: "\e045";
+}
+
+.si-calendar:before {
+    content: "\e046";
+}
+
+.si-begin:before {
+    content: "\e047";
+}
+
+.si-basket:before {
+    content: "\e048";
+}
+
+.si-bar-chart:before {
+    content: "\e049";
+}
+
+.si-attachment:before {
+    content: "\e04a";
+}
+
+.si-arrow-top:before {
+    content: "\e04b";
+}
+
+.si-arrow-right:before {
+    content: "\e04c";
+}
+
+.si-arrow-left:before {
+    content: "\e04d";
+}
+
+.si-arrow-bottom:before {
+    content: "\e04e";
+}
+
+.si-approvals:before {
+    content: "\e04f";
+}
+
+.si-appointment:before {
+    content: "\e050";
+}
+
+.si-alphabetical-order:before {
+    content: "\e051";
+}
+
+.si-along-stacked-chart:before {
+    content: "\e052";
+}
+
+.si-alert:before {
+    content: "\e053";
+}
+
+.si-addresses:before {
+    content: "\e054";
+}
+
+.si-address-book:before {
+    content: "\e055";
+}
+
+.si-add-filter:before {
+    content: "\e056";
+}
+
+.si-add-favorite:before {
+    content: "\e057";
+}
+
+.si-add:before {
+    content: "\e058";
+}
+
+.si-activities:before {
+    content: "\e059";
+}
+
+.si-action:before {
+    content: "\e05a";
+}
+
+.si-accept:before {
+    content: "\e05b";
+}
+
+.si-hint:before {
+    content: "\e05c";
+}
+
+.si-group:before {
+    content: "\e05d";
+}
+
+.si-check-availability:before {
+    content: "\e05e";
+}
+
+.si-weather-proofing:before {
+    content: "\e05f";
+}
+
+.si-payment-approval:before {
+    content: "\e060";
+}
+
+.si-batch-payments:before {
+    content: "\e061";
+}
+
+.si-bed:before {
+    content: "\e062";
+}
+
+.si-arobase:before {
+    content: "\e063";
+}
+
+.si-family-care:before {
+    content: "\e064";
+}
+
+.si-favorite:before {
+    content: "\e065";
+}
+
+.si-navigation-right-arrow:before {
+    content: "\e066";
+}
+
+.si-navigation-left-arrow:before {
+    content: "\e067";
+}
+
+.si-e-care:before {
+    content: "\e068";
+}
+
+.si-less:before {
+    content: "\e069";
+}
+
+.si-lateness:before {
+    content: "\e06a";
+}
+
+.si-lab:before {
+    content: "\e06b";
+}
+
+.si-internet-browser:before {
+    content: "\e06c";
+}
+
+.si-instance:before {
+    content: "\e06d";
+}
+
+.si-inspection:before {
+    content: "\e06e";
+}
+
+.si-image-viewer:before {
+    content: "\e06f";
+}
+
+.si-home:before {
+    content: "\e070";
+}
+
+.si-grid:before {
+    content: "\e071";
+}
+
+.si-goalseek:before {
+    content: "\e072";
+}
+
+.si-general-leave-request:before {
+    content: "\e073";
+}
+
+.si-create-leave-request:before {
+    content: "\e074";
+}
+
+.si-flight:before {
+    content: "\e075";
+}
+
+.si-filter:before {
+    content: "\e076";
+}
+
+.si-favorite-list:before {
+    content: "\e077";
+}
+
+.si-factory:before {
+    content: "\e078";
+}
+
+.si-endoscopy:before {
+    content: "\e079";
+}
+
+.si-employee-pane:before {
+    content: "\e07a";
+}
+
+.si-employee-approvals:before {
+    content: "\e07b";
+}
+
+.si-email-read:before {
+    content: "\e07c";
+}
+
+.si-electrocardiogram:before {
+    content: "\e07d";
+}
+
+.si-documents:before {
+    content: "\e07e";
+}
+
+.si-decision:before {
+    content: "\e07f";
+}
+
+.si-database:before {
+    content: "\e080";
+}
+
+.si-customer-history:before {
+    content: "\e081";
+}
+
+.si-customer:before {
+    content: "\e082";
+}
+
+.si-credit-card:before {
+    content: "\e083";
+}
+
+.si-create-entry-time:before {
+    content: "\e084";
+}
+
+.si-contacts:before {
+    content: "\e085";
+}
+
+.si-compare:before {
+    content: "\e086";
+}
+
+.si-clinical-order:before {
+    content: "\e087";
+}
+
+.si-chain-link:before {
+    content: "\e088";
+}
+
+.si-pull-down:before {
+    content: "\e089";
+}
+
+.si-cargo-train:before {
+    content: "\e08a";
+}
+
+.si-car-rental:before {
+    content: "\e08b";
+}
+
+.si-business-card:before {
+    content: "\e08c";
+}
+
+.si-bar-code:before {
+    content: "\e08d";
+}
+
+.si-folder-blank:before {
+    content: "\e08e";
+}
+
+.si-passenger-train:before {
+    content: "\e08f";
+}
+
+.si-question-mark:before {
+    content: "\e090";
+}
+
+.si-world:before {
+    content: "\e091";
+}
+
+.si-iphone:before {
+    content: "\e092";
+}
+
+.si-ipad:before {
+    content: "\e093";
+}
+
+.si-warning:before {
+    content: "\e094";
+}
+
+.si-sort:before {
+    content: "\e095";
+}
+
+.si-course-book:before {
+    content: "\e096";
+}
+
+.si-course-program:before {
+    content: "\e097";
+}
+
+.si-add-coursebook:before {
+    content: "\e098";
+}
+
+.si-print:before {
+    content: "\e099";
+}
+
+.si-save:before {
+    content: "\e09a";
+}
+
+.si-play:before {
+    content: "\e09b";
+}
+
+.si-pause:before {
+    content: "\e09c";
+}
+
+.si-record:before {
+    content: "\e09d";
+}
+
+.si-response:before {
+    content: "\e09e";
+}
+
+.si-pushpin-on:before {
+    content: "\e09f";
+}
+
+.si-pushpin-off:before {
+    content: "\e0a0";
+}
+
+.si-unfavorite:before {
+    content: "\e0a1";
+}
+
+.si-learning-assistant:before {
+    content: "\e0a2";
+}
+
+.si-timesheet:before {
+    content: "\e0a3";
+}
+
+.si-time-entry-request:before {
+    content: "\e0a4";
+}
+
+.si-list:before {
+    content: "\e0a5";
+}
+
+.si-action-settings:before {
+    content: "\e0a6";
+}
+
+.si-share:before {
+    content: "\e0a7";
+}
+
+.si-feed:before {
+    content: "\e0a8";
+}
+
+.si-role:before {
+    content: "\e0a9";
+}
+
+.si-flag:before {
+    content: "\e0aa";
+}
+
+.si-post:before {
+    content: "\e0ab";
+}
+
+.si-inspect:before {
+    content: "\e0ac";
+}
+
+.si-inspect-down:before {
+    content: "\e0ad";
+}
+
+.si-appointment-2:before {
+    content: "\e0ae";
+}
+
+.si-target-group:before {
+    content: "\e0af";
+}
+
+.si-marketing-campaign:before {
+    content: "\e0b0";
+}
+
+.si-message-error:before {
+    content: "\e0b1";
+}
+
+.si-comment:before {
+    content: "\e0b2";
+}
+
+.si-shipping-status:before {
+    content: "\e0b3";
+}
+
+.si-collaborate:before {
+    content: "\e0b4";
+}
+
+.si-shortcut:before {
+    content: "\e0b5";
+}
+
+.si-lead-outdated:before {
+    content: "\e0b6";
+}
+
+.si-tools-opportunity:before {
+    content: "\e0b7";
+}
+
+.si-permission:before {
+    content: "\e0b8";
+}
+
+.si-supplier:before {
+    content: "\e0b9";
+}
+
+.si-table-view:before {
+    content: "\e0ba";
+}
+
+.si-table-chart:before {
+    content: "\e0bb";
+}
+
+.si-switch-views:before {
+    content: "\e0bc";
+}
+
+.si-e-learning:before {
+    content: "\e0bd";
+}
+
+.si-manager:before {
+    content: "\e0be";
+}
+
+.si-switch-classes:before {
+    content: "\e0bf";
+}
+
+.si-simple-payment:before {
+    content: "\e0c0";
+}
+
+.si-signature:before {
+    content: "\e0c1";
+}
+
+.si-sales-order-item:before {
+    content: "\e0c2";
+}
+
+.si-sales-order:before {
+    content: "\e0c3";
+}
+
+.si-request:before {
+    content: "\e0c4";
+}
+
+.si-receipt:before {
+    content: "\e0c5";
+}
+
+.si-puzzle:before {
+    content: "\e0c6";
+}
+
+.si-process:before {
+    content: "\e0c7";
+}
+
+.si-private:before {
+    content: "\e0c8";
+}
+
+.si-popup-window:before {
+    content: "\e0c9";
+}
+
+.si-person-placeholder:before {
+    content: "\e0ca";
+}
+
+.si-per-diem:before {
+    content: "\e0cb";
+}
+
+.si-paper-plane:before {
+    content: "\e0cc";
+}
+
+.si-paid-leave:before {
+    content: "\e0cd";
+}
+
+.si-pdf-reader:before {
+    content: "\e0ce";
+}
+
+.si-overview-chart:before {
+    content: "\e0cf";
+}
+
+.si-overlay:before {
+    content: "\e0d0";
+}
+
+.si-org-chart:before {
+    content: "\e0d1";
+}
+
+.si-number-sign:before {
+    content: "\e0d2";
+}
+
+.si-notification-2:before {
+    content: "\e0d3";
+}
+
+.si-my-sales-order:before {
+    content: "\e0d4";
+}
+
+.si-meal:before {
+    content: "\e0d5";
+}
+
+.si-loan:before {
+    content: "\e0d6";
+}
+
+.si-order-status:before {
+    content: "\e0d7";
+}
+
+.si-customer-order-entry:before {
+    content: "\e0d8";
+}
+
+.si-performance:before {
+    content: "\e0d9";
+}
+
+.si-menu:before {
+    content: "\e0da";
+}
+
+.si-employee-lookup:before {
+    content: "\e0db";
+}
+
+.si-education:before {
+    content: "\e0dc";
+}
+
+.si-customer-briefing:before {
+    content: "\e0dd";
+}
+
+.si-customer-and-contacts:before {
+    content: "\e0de";
+}
+
+.si-my-view:before {
+    content: "\e0df";
+}
+
+.si-accelerated:before {
+    content: "\e0e0";
+}
+
+.si-to-be-reviewed:before {
+    content: "\e0e1";
+}
+
+.si-warning2:before {
+    content: "\e0e2";
+}
+
+.si-feeder-arrow:before {
+    content: "\e0e3";
+}
+
+.si-quality-issue:before {
+    content: "\e0e4";
+}
+
+.si-workflow-tasks:before {
+    content: "\e0e5";
+}
+
+.si-create:before {
+    content: "\e0e6";
+}
+
+.si-home-share:before {
+    content: "\e0e7";
+}
+
+.si-globe:before {
+    content: "\e0e8";
+}
+
+.si-tags:before {
+    content: "\e0e9";
+}
+
+.si-work-history:before {
+    content: "\e0ea";
+}
+
+.si-x-ray:before {
+    content: "\e0eb";
+}
+
+.si-wounds-doc:before {
+    content: "\e0ec";
+}
+
+.si-web-cam:before {
+    content: "\e0ed";
+}
+
+.si-waiver:before {
+    content: "\e0ee";
+}
+
+.si-vertical-bar-chart:before {
+    content: "\e0ef";
+}
+
+.si-upstacked-chart:before {
+    content: "\e0f0";
+}
+
+.si-trip-report:before {
+    content: "\e0f1";
+}
+
+.si-microphone:before {
+    content: "\e0f2";
+}
+
+.si-unpaid-leave:before {
+    content: "\e0f3";
+}
+
+.si-tree:before {
+    content: "\e0f4";
+}
+
+.si-toaster-up:before {
+    content: "\e0f5";
+}
+
+.si-toaster-top:before {
+    content: "\e0f6";
+}
+
+.si-toaster-down:before {
+    content: "\e0f7";
+}
+
+.si-time-account:before {
+    content: "\e0f8";
+}
+
+.si-theater:before {
+    content: "\e0f9";
+}
+
+.si-taxi:before {
+    content: "\e0fa";
+}
+
+.si-subway-train:before {
+    content: "\e0fb";
+}
+
+.si-study-leave:before {
+    content: "\e0fc";
+}
+
+.si-stethoscope:before {
+    content: "\e0fd";
+}
+
+.si-step:before {
+    content: "\e0fe";
+}
+
+.si-sonography:before {
+    content: "\e0ff";
+}
+
+.si-soccor:before {
+    content: "\e100";
+}
+
+.si-physical-activity:before {
+    content: "\e101";
+}
+
+.si-pharmacy:before {
+    content: "\e102";
+}
+
+.si-official-service:before {
+    content: "\e103";
+}
+
+.si-offsite-work:before {
+    content: "\e104";
+}
+
+.si-nutrition-activity:before {
+    content: "\e105";
+}
+
+.si-newspaper:before {
+    content: "\e106";
+}
+
+.si-monitor-payments:before {
+    content: "\e107";
+}
+
+.si-map-2:before {
+    content: "\e108";
+}
+
+.si-machine:before {
+    content: "\e109";
+}
+
+.si-mri-scan:before {
+    content: "\e10a";
+}
+
+.si-end-user-experience-monitoring:before {
+    content: "\e10b";
+}
+
+.si-unwired:before {
+    content: "\e10c";
+}
+
+.si-customer-financial-fact-sheet:before {
+    content: "\e10d";
+}
+
+.si-retail-store-manager:before {
+    content: "\e10e";
+}
+
+.si-Netweaver-business-client:before {
+    content: "\e10f";
+}
+
+.si-electronic-medical-record:before {
+    content: "\e110";
+}
+
+.si-eam-work-order:before {
+    content: "\e111";
+}
+
+.si-customer-view:before {
+    content: "\e112";
+}
+
+.si-crm-service-manager:before {
+    content: "\e113";
+}
+
+.si-crm-sales:before {
+    content: "\e114";
+}
+
+.si-widgets:before {
+    content: "\e115";
+}
+
+.si-commission-check:before {
+    content: "\e116";
+}
+
+.si-collections-insight:before {
+    content: "\e117";
+}
+
+.si-clinical-tast-tracker:before {
+    content: "\e118";
+}
+
+.si-citizen-connect:before {
+    content: "\e119";
+}
+
+.si-cart-approval:before {
+    content: "\e11a";
+}
+
+.si-capital-projects:before {
+    content: "\e11b";
+}
+
+.si-bo-strategy-management:before {
+    content: "\e11c";
+}
+
+.si-business-objects-mobile:before {
+    content: "\e11d";
+}
+
+.si-business-objects-explorer:before {
+    content: "\e11e";
+}
+
+.si-business-objects-experience:before {
+    content: "\e11f";
+}
+
+.si-bbyd-dashboard:before {
+    content: "\e120";
+}
+
+.si-bbyd-active-sales:before {
+    content: "\e121";
+}
+
+.si-business-by-design:before {
+    content: "\e122";
+}
+
+.si-business-one:before {
+    content: "\e123";
+}
+
+.si-sap-box:before {
+    content: "\e124";
+}
+
+.si-manager-insight:before {
+    content: "\e125";
+}
+
+.si-accounting-document-verification:before {
+    content: "\e126";
+}
+
+.si-hr-approval:before {
+    content: "\e127";
+}
+
+.si-idea-wall:before {
+    content: "\e128";
+}
+
+.si-Chart-Tree-Map:before {
+    content: "\e129";
+}
+
+.si-cart-5:before {
+    content: "\e12a";
+}
+
+.si-cart-4:before {
+    content: "\e12b";
+}
+
+.si-wallet:before {
+    content: "\e12c";
+}
+
+.si-vehicle-repair:before {
+    content: "\e12d";
+}
+
+.si-upload:before {
+    content: "\e12e";
+}
+
+.si-unlocked:before {
+    content: "\e12f";
+}
+
+.si-umbrella:before {
+    content: "\e130";
+}
+
+.si-travel-request:before {
+    content: "\e131";
+}
+
+.si-travel-expense-report:before {
+    content: "\e132";
+}
+
+.si-travel-itinerary:before {
+    content: "\e133";
+}
+
+.si-time-overtime:before {
+    content: "\e134";
+}
+
+.si-thing-type:before {
+    content: "\e135";
+}
+
+.si-technical-object:before {
+    content: "\e136";
+}
+
+.si-tag:before {
+    content: "\e137";
+}
+
+.si-syringe:before {
+    content: "\e138";
+}
+
+.si-syntax:before {
+    content: "\e139";
+}
+
+.si-suitcase:before {
+    content: "\e13a";
+}
+
+.si-simulate:before {
+    content: "\e13b";
+}
+
+.si-shield:before {
+    content: "\e13c";
+}
+
+.si-share-2:before {
+    content: "\e13d";
+}
+
+.si-sales-quote:before {
+    content: "\e13e";
+}
+
+.si-repost:before {
+    content: "\e13f";
+}
+
+.si-provision:before {
+    content: "\e140";
+}
+
+.si-projector:before {
+    content: "\e141";
+}
+
+.si-add-product:before {
+    content: "\e142";
+}
+
+.si-pipeline-analysis:before {
+    content: "\e143";
+}
+
+.si-add-photo:before {
+    content: "\e144";
+}
+
+.si-palette:before {
+    content: "\e145";
+}
+
+.si-nurse:before {
+    content: "\e146";
+}
+
+.si-sales-notification:before {
+    content: "\e147";
+}
+
+.si-mileage:before {
+    content: "\e148";
+}
+
+.si-meeting-room:before {
+    content: "\e149";
+}
+
+.si-media-forward:before {
+    content: "\e14a";
+}
+
+.si-media-play:before {
+    content: "\e14b";
+}
+
+.si-media-pause:before {
+    content: "\e14c";
+}
+
+.si-media-reverse:before {
+    content: "\e14d";
+}
+
+.si-media-rewind:before {
+    content: "\e14e";
+}
+
+.si-measurement-document:before {
+    content: "\e14f";
+}
+
+.si-measuring-point:before {
+    content: "\e150";
+}
+
+.si-measure:before {
+    content: "\e151";
+}
+
+.si-map-3:before {
+    content: "\e152";
+}
+
+.si-locked:before {
+    content: "\e153";
+}
+
+.si-letter:before {
+    content: "\e154";
+}
+
+.si-journey-arrive:before {
+    content: "\e155";
+}
+
+.si-journey-change:before {
+    content: "\e156";
+}
+
+.si-journey-depart:before {
+    content: "\e157";
+}
+
+.si-it-system:before {
+    content: "\e158";
+}
+
+.si-it-instance:before {
+    content: "\e159";
+}
+
+.si-it-host:before {
+    content: "\e15a";
+}
+
+.si-iphone-2:before {
+    content: "\e15b";
+}
+
+.si-ipad-2:before {
+    content: "\e15c";
+}
+
+.si-inventory:before {
+    content: "\e15d";
+}
+
+.si-insurance-house:before {
+    content: "\e15e";
+}
+
+.si-insurance-life:before {
+    content: "\e15f";
+}
+
+.si-insurance-car:before {
+    content: "\e160";
+}
+
+.si-initiative:before {
+    content: "\e161";
+}
+
+.si-incident:before {
+    content: "\e162";
+}
+
+.si-group-2:before {
+    content: "\e163";
+}
+
+.si-goal:before {
+    content: "\e164";
+}
+
+.si-functional-location:before {
+    content: "\e165";
+}
+
+.si-full-screen:before {
+    content: "\e166";
+}
+
+.si-form:before {
+    content: "\e167";
+}
+
+.si-fob-watch:before {
+    content: "\e168";
+}
+
+.si-blank-tag:before {
+    content: "\e169";
+}
+
+.si-family-protection:before {
+    content: "\e16a";
+}
+
+.si-folder:before {
+    content: "\e16b";
+}
+
+.si-fax-machine:before {
+    content: "\e16c";
+}
+
+.si-example:before {
+    content: "\e16d";
+}
+
+.si-eraser:before {
+    content: "\e16e";
+}
+
+.si-employee-rejections:before {
+    content: "\e16f";
+}
+
+.si-drop-down-list:before {
+    content: "\e170";
+}
+
+.si-draw-rectangle:before {
+    content: "\e171";
+}
+
+.si-document:before {
+    content: "\e172";
+}
+
+.si-doctor:before {
+    content: "\e173";
+}
+
+.si-discussion-2:before {
+    content: "\e174";
+}
+
+.si-discussion:before {
+    content: "\e175";
+}
+
+.si-dimension:before {
+    content: "\e176";
+}
+
+.si-customer-and-supplier:before {
+    content: "\e177";
+}
+
+.si-crop:before {
+    content: "\e178";
+}
+
+.si-add-contact:before {
+    content: "\e179";
+}
+
+.si-compare-2:before {
+    content: "\e17a";
+}
+
+.si-color-fill:before {
+    content: "\e17b";
+}
+
+.si-collision:before {
+    content: "\e17c";
+}
+
+.si-curriculum:before {
+    content: "\e17d";
+}
+
+.si-chart-axis:before {
+    content: "\e17e";
+}
+
+.si-full-stacked-chart:before {
+    content: "\e17f";
+}
+
+.si-full-stacked-column-chart:before {
+    content: "\e180";
+}
+
+.si-vertical-bar-chart-2:before {
+    content: "\e181";
+}
+
+.si-horizontal-bar-chart-2:before {
+    content: "\e182";
+}
+
+.si-horizontal-stacked-chart:before {
+    content: "\e183";
+}
+
+.si-vertical-stacked-chart:before {
+    content: "\e184";
+}
+
+.si-choropleth-chart:before {
+    content: "\e185";
+}
+
+.si-geographic-bubble-chart:before {
+    content: "\e186";
+}
+
+.si-multiple-radar-chart:before {
+    content: "\e187";
+}
+
+.si-radar-chart:before {
+    content: "\e188";
+}
+
+.si-crossed-line-chart:before {
+    content: "\e189";
+}
+
+.si-multiple-line-chart:before {
+    content: "\e18a";
+}
+
+.si-multiple-bar-chart:before {
+    content: "\e18b";
+}
+
+.si-line-chart:before {
+    content: "\e18c";
+}
+
+.si-line-chart-dual-axis:before {
+    content: "\e18d";
+}
+
+.si-bubble-chart:before {
+    content: "\e18e";
+}
+
+.si-scatter-chart:before {
+    content: "\e18f";
+}
+
+.si-multiple-pie-chart:before {
+    content: "\e190";
+}
+
+.si-column-chart-dual-axis:before {
+    content: "\e191";
+}
+
+.si-tag-cloud-chart:before {
+    content: "\e192";
+}
+
+.si-area-chart:before {
+    content: "\e193";
+}
+
+.si-cause:before {
+    content: "\e194";
+}
+
+.si-cart-3:before {
+    content: "\e195";
+}
+
+.si-cart-2:before {
+    content: "\e196";
+}
+
+.si-bus-public-transport:before {
+    content: "\e197";
+}
+
+.si-burglary:before {
+    content: "\e198";
+}
+
+.si-building:before {
+    content: "\e199";
+}
+
+.si-border:before {
+    content: "\e19a";
+}
+
+.si-bookmark:before {
+    content: "\e19b";
+}
+
+.si-badge:before {
+    content: "\e19c";
+}
+
+.si-attachment-audio:before {
+    content: "\e19d";
+}
+
+.si-attachment-video:before {
+    content: "\e19e";
+}
+
+.si-attachment-html:before {
+    content: "\e19f";
+}
+
+.si-attachment-photo:before {
+    content: "\e1a0";
+}
+
+.si-attachment-e-pub:before {
+    content: "\e1a1";
+}
+
+.si-attachment-zip-file:before {
+    content: "\e1a2";
+}
+
+.si-attachment-text-file:before {
+    content: "\e1a3";
+}
+
+.si-add-equipment:before {
+    content: "\e1a4";
+}
+
+.si-add-activity:before {
+    content: "\e1a5";
+}
+
+.si-activity-individual:before {
+    content: "\e1a6";
+}
+
+.si-activity-2:before {
+    content: "\e1a7";
+}
+
+.si-add-activity-2:before {
+    content: "\e1a8";
+}
+
+.si-activity-items:before {
+    content: "\e1a9";
+}
+
+.si-activity-assigned-to-goal:before {
+    content: "\e1aa";
+}
+
+.si-status-positive:before {
+    content: "\e1ab";
+}
+
+.si-status-negative:before {
+    content: "\e1ac";
+}
+
+.si-status-inactive:before {
+    content: "\e1ad";
+}
+
+.si-status-critical:before {
+    content: "\e1ae";
+}
+
+.si-blank-tag-2:before {
+    content: "\e1af";
+}
+
+.si-cart-full:before {
+    content: "\e1b0";
+}
+
+.si-locate-me:before {
+    content: "\e1b1";
+}
+
+.si-paging:before {
+    content: "\e1b2";
+}
+
+.si-company-view:before {
+    content: "\e1b3";
+}
+
+.si-document-text:before {
+    content: "\e1b4";
+}
+
+.si-explorer:before {
+    content: "\e1b5";
+}
+
+.si-personnel-view:before {
+    content: "\e1b6";
+}
+
+.si-sorting-ranking:before {
+    content: "\e1b7";
+}
+
+.si-drill-down:before {
+    content: "\e1b8";
+}
+
+.si-drill-up:before {
+    content: "\e1b9";
+}
+
+.si-vds-file:before {
+    content: "\e1ba";
+}
+
+.si-sap-logo-shape:before {
+    content: "\e1bb";
+}
+
+.si-folder-full:before {
+    content: "\e1bc";
+}
+
+.si-system-exit:before {
+    content: "\e1bd";
+}
+
+.si-system-exit-2:before {
+    content: "\e1be";
+}
+
+.si-close-command-field:before {
+    content: "\e1bf";
+}
+
+.si-open-command-field:before {
+    content: "\e1c0";
+}
+
+.si-sys-enter-2:before {
+    content: "\e1c1";
+}
+
+.si-sys-enter:before {
+    content: "\e1c2";
+}
+
+.si-sys-help-2:before {
+    content: "\e1c3";
+}
+
+.si-sys-help:before {
+    content: "\e1c4";
+}
+
+.si-sys-back:before {
+    content: "\e1c5";
+}
+
+.si-sys-back-2:before {
+    content: "\e1c6";
+}
+
+.si-sys-cancel:before {
+    content: "\e1c7";
+}
+
+.si-sys-cancel-2:before {
+    content: "\e1c8";
+}
+
+.si-open-folder:before {
+    content: "\e1c9";
+}
+
+.si-sys-find-next:before {
+    content: "\e1ca";
+}
+
+.si-sys-find:before {
+    content: "\e1cb";
+}
+
+.si-sys-monitor:before {
+    content: "\e1cc";
+}
+
+.si-sys-prev-page:before {
+    content: "\e1cd";
+}
+
+.si-sys-first-page:before {
+    content: "\e1ce";
+}
+
+.si-sys-next-page:before {
+    content: "\e1cf";
+}
+
+.si-sys-last-page:before {
+    content: "\e1d0";
+}
+
+.si-generate-shortcut:before {
+    content: "\e1d1";
+}
+
+.si-create-session:before {
+    content: "\e1d2";
+}
+
+.si-display-more:before {
+    content: "\e1d3";
+}
+
+.si-enter-more:before {
+    content: "\e1d4";
+}
+
+.si-zoom-in:before {
+    content: "\e1d5";
+}
+
+.si-zoom-out:before {
+    content: "\e1d6";
+}
+
+.si-header:before {
+    content: "\e1d7";
+}
+
+.si-detail-view:before {
+    content: "\e1d8";
+}
+
+.si-collapse:before {
+    content: "\e1d9";
+}
+
+.si-expand:before {
+    content: "\e1da";
+}
+
+.si-positive:before {
+    content: "\e1db";
+}
+
+.si-negative:before {
+    content: "\e1dc";
+}
+
+.si-display:before {
+    content: "\e1dd";
+}
+
+.si-menu2:before {
+    content: "\e1de";
+}
+
+.si-redo:before {
+    content: "\e1df";
+}
+
+.si-undo:before {
+    content: "\e1e0";
+}
+
+
+.si-navigation-up-arrow:before {
+    content: "\e1e1";
+}
+
+
+.si-navigation-down-arrow:before {
+    content: "\e1e2";
+}
+
+
+.si-down:before {
+    content: "\e1e3";
+}
+
+
+.si-up:before {
+    content: "\e1e4";
+}
+
+
+.si-shelf:before {
+    content: "\e1e5";
+}
+
+
+.si-background:before {
+    content: "\e1e6";
+}
+
+
+.si-resize:before {
+    content: "\e1e7";
+}
+
+
+.si-move:before {
+    content: "\e1e8";
+}
+
+
+.si-show:before {
+    content: "\e1e9";
+}
+
+
+.si-hide:before {
+    content: "\e1ea";
+}
+
+.si-nav-back:before {
+    content: "\e1eb";
+}
+
+.si-error:before {
+    content: "\e1ec";
+}
+
+.si-slim-arrow-right:before {
+    content: "\e1ed";
+}
+
+.si-slim-arrow-left:before {
+    content: "\e1ee";
+}
+
+.si-slim-arrow-down:before {
+    content: "\e1ef";
+}
+
+.si-slim-arrow-up:before {
+    content: "\e1f0";
+}
+
+.si-forward:before {
+    content: "\e1f1";
+}
+
+.si-overflow:before {
+    content: "\e1f2";
+}
+
+.si-value-help:before {
+    content: "\e1f3";
+}
+
+.si-multiselect:before {
+    content: "\e1f4";
+}
+
+.si-exitfullscreen:before {
+    content: "\e1f5";
+}
+
+.si-sys-add:before {
+    content: "\e1f6";
+}
+
+
+.si-sys-minus:before {
+    content: "\e1f7";
+}
+
+.si-dropdown:before {
+    content: "\e1f8";
+}
+
+
+.si-expand-group:before {
+    content: "\e1f9";
+}
+
+.si-vertical-grip:before {
+    content: "\e1fa";
+}
+
+.si-horizontal-grip:before {
+    content: "\e1fb";
+}
+
+.si-sort-descending:before {
+    content: "\e1fc";
+}
+
+.si-sort-ascending:before {
+    content: "\e1fd";
+}
+
+.si-arrow-down:before {
+    content: "\e1fe";
+}
+
+.si-legend:before {
+    content: "\e1ff";
+}
+
+.si-collapse-group:before {
+    content: "\e200";
+}
+
+.si-message-warning:before {
+    content: "\e201";
+}
+
+
+.si-message-information:before {
+    content: "\e202";
+}
+
+
+.si-message-success:before {
+    content: "\e203";
+}
+
+.si-restart:before {
+    content: "\e204";
+}
+
+.si-stop:before {
+    content: "\e205";
+}
+
+.si-add-process:before {
+    content: "\e206";
+}
+
+.si-cancel-maintenance:before {
+    content: "\e207";
+}
+
+.si-activate:before {
+    content: "\e208";
+}
+
+.si-resize-horizontal:before {
+    content: "\e209";
+}
+
+.si-resize-vertical:before {
+    content: "\e20a";
+}
+
+.si-connected:before {
+    content: "\e20b";
+}
+
+.si-disconnected:before {
+    content: "\e20c";
+}
+
+.si-edit-outside:before {
+    content: "\e20d";
+}
+
+.si-key:before {
+    content: "\e20e";
+}
+
+.si-minimize:before {
+    content: "\e20f";
+}
+
+.si-back-to-top:before {
+    content: "\e210";
+}
+
+.si-hello-world:before {
+    content: "\e211";
+}
+
+.si-outbox:before {
+    content: "\e212";
+}
+
+.si-donut-chart:before {
+    content: "\e213";
+}
+
+.si-heatmap-chart:before {
+    content: "\e214";
+}
+
+
+.si-horizontal-bullet-chart:before {
+    content: "\e215";
+}
+
+
+.si-vertical-bullet-chart:before {
+    content: "\e216";
+}
+
+
+.si-call:before {
+    content: "\e217";
+}
+
+
+.si-download-from-cloud:before {
+    content: "\e218";
+}
+
+
+.si-upload-to-cloud:before {
+    content: "\e219";
+}
+
+
+.si-jam:before {
+    content: "\e21a";
+}
+
+
+.si-sap-ui5:before {
+    content: "\e21b";
+}
+
+
+.si-message-popup:before {
+    content: "\e21c";
+}
+
+
+.si-cloud:before {
+    content: "\e21d";
+}
+
+.si-horizontal-waterfall-chart:before {
+    content: "\e21e";
+}
+
+.si-vertical-waterfall-chart:before {
+    content: "\e21f";
+}
+
+.si-broken-link:before {
+    content: "\e220";
+}
+
+.si-headset:before {
+    content: "\e221";
+}
+
+.si-thumb-up:before {
+    content: "\e222";
+}
+
+
+.si-thumb-down:before {
+    content: "\e223";
+}
+
+
+.si-multiselect-all:before {
+    content: "\e224";
+}
+
+
+.si-multiselect-none:before {
+    content: "\e225";
+}
+
+
+.si-scissors:before {
+    content: "\e226";
+}
+
+
+.si-sound:before {
+    content: "\e227";
+}
+
+
+.si-sound-loud:before {
+    content: "\e228";
+}
+
+.si-sound-off:before {
+    content: "\e229";
+}
+
+.si-date-time:before {
+    content: "\e22a";
+}
+
+.si-user-settings:before {
+    content: "\e22b";
+}
+
+.si-key-user-settings:before {
+    content: "\e23c";
+}
+
+.si-developer-settings:before {
+    content: "\e22d";
+}
+
+.si-text-formatting:before {
+    content: "\e22e";
+}
+
+.si-bold-text:before {
+    content: "\e22f";
+}
+
+.si-italic-text:before {
+    content: "\e230";
+}
+
+.si-underline-text:before {
+    content: "\e231";
+}
+
+
+.si-text-align-justified:before {
+    content: "\e232";
+}
+
+
+.si-text-align-left:before {
+    content: "\e233";
+}
+
+
+.si-text-align-center:before {
+    content: "\e234";
+}
+
+
+.si-text-align-right:before {
+    content: "\e235";
+}
+
+
+.si-bullet-text:before {
+    content: "\e236";
+}
+
+.si-numbered-text:before {
+    content: "\e237";
+}
+
+.si-co:before {
+    content: "\e238";
+}
+
+.si-ui-notifications:before {
+    content: "\e239";
+}
+
+.si-bell:before {
+    content: "\e23a";
+}
+
+.si-cancel-share:before {
+    content: "\e23b";
+}
+
+.si-write-new-document:before {
+    content: "\e23c";
+}
+
+.si-write-new:before {
+    content: "\e23d";
+}
+
+.si-cancel:before {
+    content: "\e23e";
+}
+
+.si-screen-split-one:before {
+    content: "\e23f";
+}
+
+.si-screen-split-two:before {
+    content: "\e240";
+}
+
+.si-screen-split-three:before {
+    content: "\e241";
+}
+
+.si-customize:before {
+    content: "\e242";
+}
+
+
+.si-user-edit:before {
+    content: "\e243";
+}
+
+.si-source-code:before {
+    content: "\e244";
+}
+
+.si-copy:before {
+    content: "\e245";
+}
+
+.si-paste:before {
+    content: "\e246";
+}
+
+.si-line-chart-time-axis:before {
+    content: "\e247";
+}
+
+.si-clear-filter:before {
+    content: "\e248";
+}
+
+.si-reset:before {
+    content: "\e249";
+}
+
+.si-trend-up:before {
+    content: "\e24a";
+}
+
+.si-trend-down:before {
+    content: "\e24b";
+}
+
+.si-cursor:before {
+    content: "\e24c";
+}
+
+.si-add-document:before {
+    content: "\e24d";
+}
+
+.si-create-form:before {
+    content: "\e24e";
+}
+
+.si-resize-corner:before {
+    content: "\e24f";
+}
+
+.si-chevron-phase:before {
+    content: "\e250";
+}
+
+.si-chevron-phase-2:before {
+    content: "\e251";
+}
+
+.si-rhombus-milestone:before {
+    content: "\e252";
+}
+
+.si-rhombus-milestone-2:before {
+    content: "\e253";
+}
+
+.si-circle-task:before {
+    content: "\e254";
+}
+
+.si-circle-task-2:before {
+    content: "\e255";
+}
+
+.si-project-definition-triangle:before {
+    content: "\e256";
+}
+
+.si-project-definition-triangle-2:before {
+    content: "\e257";
+}
+
+.si-master-task-triangle:before {
+    content: "\e258";
+}
+
+.si-master-task-triangle-2:before {
+    content: "\e259";
+}
+
+.si-program-triangles:before {
+    content: "\e25a";
+}
+
+.si-program-triangles-2:before {
+    content: "\e25b";
+}
+
+.si-mirrored-task-circle:before {
+    content: "\e25c";
+}
+
+.si-mirrored-task-circle-2:before {
+    content: "\e25d";
+}
+
+.si-checklist-item:before {
+    content: "\e25e";
+}
+
+.si-checklist-item-2:before {
+    content: "\e25f";
+}
+
+.si-checklist:before {
+    content: "\e260";
+}
+
+.si-checklist-2:before {
+    content: "\e261";
+}
+
+.si-chart-table-view:before {
+    content: "\e262";
+}
+
+.si-filter-analytics:before {
+    content: "\e263";
+}
+
+.si-filter-facets:before {
+    content: "\e264";
+}
+
+.si-filter-fields:before {
+    content: "\e265";
+}
+
+.si-indent:before {
+    content: "\e266";
+}
+
+.si-outdent:before {
+    content: "\e267";
+}
+
+.si-heading-1:before {
+    content: "\e268";
+}
+
+
+.si-heading-2:before {
+    content: "\e269";
+}
+
+
+.si-heading-3:before {
+    content: "\e26a";
+}
+
+
+.si-decrease-line-height:before {
+    content: "\e26b";
+}
+
+
+.si-increase-line-height:before {
+    content: "\e26c";
+}

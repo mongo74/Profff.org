@@ -924,6 +924,7 @@
     <Content Include="Views\MacroPartials\HomePage\StudiedagBlock.cshtml" />
     <Content Include="Views\StudiedagProgrammaRoot.cshtml" />
     <Content Include="Views\MacroPartials\ProgrammaStudiedag.cshtml" />
+    <Content Include="Views\MacroPartials\Footer\NavigationBlocks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

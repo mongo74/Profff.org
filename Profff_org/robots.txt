@@ -1,0 +1,4 @@
+﻿User-agent:*
+Disallow: /Umbraco
+Disallow: /404
+Disallow: /500

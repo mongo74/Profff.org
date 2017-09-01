@@ -1,43 +1,41 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
-@{ var startNodeId = Model.MacroParameters["startNodeId"]; }
-@if (startNodeId != null)
-{
-    @* Get the starting page *@
-    var startNode = Umbraco.Content(startNodeId);
-    var blockOneItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock1");
-    var blockTwoItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock2");
-    var blockThreeItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock3");
-    var blockFourItems = startNode.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock4");
+@{
+    var rootPage = Umbraco.TypedContentAtRoot().First();
+    var selection = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("secondLevelNavigation");
+    var blockOneItems = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock1");
+    var blockTwoItems = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock2");
+    var blockThreeItems = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock3");
+    var blockFourItems = rootPage.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock4");
+}
 
-
-            <div class="footer-col-inner col-sm-6">
-                <h4 class="Title">Profff vzw</h4>
-                <ul class="FooterNav">
-                @foreach(var id in blockOneItems)
-                {
-                    <li><a href="@id.Url">@id.Url</a></li>
-                }
-                </ul>
-                <h4 class="Title">Mijn Profff</h4>
-                <ul class="FooterNav">
-                    <li><a href="#"><i class="icon icon-locked iconBefore"></i>Aanmelden</a></li>
-                    <li><a href="#"><i class="icon icon-request iconBefore"></i>Ik ben nog geen lid</a></li>
-                    <li><a href="#"><i class="icon icon-sys-help-2 iconBefore"></i>Paswoord vergeten?</a></li>
-                </ul>
-            </div>
-            <div class="footer-col-inner col-sm-6">
-                <h4 class="Title">Pro<em>FFF</em></h4>
-                <ul class="FooterNav">
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Over</a></li>
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Laatste nummer</a></li>
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Archief</a></li>
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Abonneren?</a></li>
-                </ul>
-                <h4 class="Title">Studiedag</h4>
-                <ul class="FooterNav">
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Info</a></li>
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Programma</a></li>
-                    <li><a href="#"><i class="icon icon-slim-arrow-right iconBefore"></i>Inschrijvingsvoorwaarden</a></li>
-                </ul>
-            </div>
-    }
+<div class="footer-col-inner col-sm-6">
+    <h4 class="Title">@Html.Raw(rootPage.GetPropertyValue("footerBlock1Title"))</h4>
+    <ul class="FooterNav">
+        @foreach (var id in blockOneItems)
+        {
+            <li><a href="@id.Url">@id.GetPropertyValue("displayName")</a></li>
+        }
+    </ul>
+    <h4 class="Title">@Html.Raw(rootPage.GetPropertyValue("footerBlock2Title"))</h4>
+    <ul class="FooterNav">
+        <li><a href="#"><i class="icon icon-locked iconBefore"></i>Aanmelden</a></li>
+        <li><a href="#"><i class="icon icon-request iconBefore"></i>Ik ben nog geen lid</a></li>
+        <li><a href="#"><i class="icon icon-sys-help-2 iconBefore"></i>Paswoord vergeten?</a></li>
+    </ul>
+</div>
+<div class="footer-col-inner col-sm-6">
+    <h4 class="Title">@Html.Raw(rootPage.GetPropertyValue("footerBlock3Title"))</h4>
+    <ul class="FooterNav">
+        @foreach (var id in blockThreeItems)
+        {
+            <li><a href="@id.Url">@id.GetPropertyValue("displayName")</a></li>
+        }
+    </ul>
+    <h4 class="Title">@Html.Raw(rootPage.GetPropertyValue("footerBlock4Title"))</h4>
+    <ul class="FooterNav">
+        @foreach (var id in blockFourItems)
+        {
+            <li><a href="@id.Url">@id.GetPropertyValue("displayName")</a></li>
+        }
+    </ul>
+</div>

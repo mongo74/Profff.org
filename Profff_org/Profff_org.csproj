@@ -581,6 +581,7 @@
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="robots.txt" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="scripts\Styling.js" />
@@ -596,7 +597,9 @@
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
     <Content Include="Media\Web.config" />
-    <Content Include="config\umbracoSettings.config" />
+    <Content Include="config\umbracoSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="config\trees.config" />
     <Content Include="config\tinyMceConfig.config" />
     <Content Include="config\scripting.config" />
@@ -925,6 +928,13 @@
     <Content Include="Views\StudiedagProgrammaRoot.cshtml" />
     <Content Include="Views\MacroPartials\ProgrammaStudiedag.cshtml" />
     <Content Include="Views\MacroPartials\Footer\NavigationBlocks.cshtml" />
+    <Content Include="Views\Banner.cshtml" />
+    <Content Include="Views\BannerFolder.cshtml" />
+    <Content Include="Views\ContactUs.cshtml" />
+    <Content Include="Views\FullWidthBanner.cshtml" />
+    <Content Include="Views\MacroPartials\Forms\ContactUs.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.cshtml" />
+    <Content Include="Views\XmlSitemap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3578,6 +3588,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Helpers\EmailSender.cs" />
+    <Compile Include="App_Code\Settings.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Models\ContactUsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3585,6 +3599,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\BOL\" />
     <Folder Include="App_Data\NuGetBackup\20170524-095544\Umbraco\" />
     <Folder Include="App_Data\NuGetBackup\20170524-095544\Umbraco_Client\" />
     <Folder Include="Views\Partials\Site wide items\" />

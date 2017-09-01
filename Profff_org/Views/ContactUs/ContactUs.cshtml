@@ -1,0 +1,57 @@
+﻿@using Profff_org.Controllers
+@model Profff_org.Models.ContactUsViewModel
+
+@using (Html.BeginUmbracoForm<ContactUsController>("HandleContactUs", FormMethod.Post, new { id = "ContactForm", @class = "form-horizontal" }))
+{
+    <fieldset>
+        <div class="form-group">
+            <!-- Full Name -->
+            @Html.LabelFor(p => p.Fullname, new {@class= "control-label col-sm-4" })
+            
+            <div class="col-sm-8">
+                @Html.TextBoxFor(p => p.Fullname, new { @placeholder = "Voornaam Naam", @class="form-control" })
+                @Html.ValidationMessageFor(p => p.Fullname, null,  new {@class="has-error"})
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Email -->
+            @Html.LabelFor(p => p.Email, new {@class= "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(p => p.Email, new { @placeholder = "naam.voornaam@adres.be", @class="form-control" })
+                @Html.ValidationMessageFor(p => p.Email, null,  new {@class="has-error"})
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Phone -->
+            @Html.LabelFor(p => p.Phone, new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(p => p.Phone, new { @placeholder = "telefoonnr", @class="form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Full Name -->
+            @Html.LabelFor(p => p.Subject, new { @class = "control-label col-sm-4" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(p => p.Subject, new { @placeholder = "Voornaam Naam", @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Subject, null,  new {@class="has-error"})
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- Full Name -->
+            @Html.LabelFor(p => p.Message, new { @class = "control-label col-sm-4" })
+            @Html.ValidationMessageFor(p => p.Message, null,  new {@class="has-error"})
+            <div class="col-sm-8">
+                @Html.TextAreaFor(p => p.Message, new {@class="form-control", @cols="20", @rows="4", @placeholder="Schrijf uw bericht hier"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                <input type="submit" value="Verzenden" class="btn btn-default" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+

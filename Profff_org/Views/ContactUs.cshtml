@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ContactUs>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "BasePage.cshtml";
+}
+@Umbraco.RenderMacro("Breadcrumb")
+
+<div class="content">
+    @Html.Partial("SiteComponents/PageBanner")
+    <section class="BodyContent">
+        <div class="container">
+            <section class="intro">
+                <p>@Umbraco.Field("intro", encoding: RenderFieldEncodingType.Html)</p>
+            </section>
+            <section class="form">
+                <div class="col-sm-8">
+                    @Umbraco.RenderMacro("ContactUs")
+                </div>
+                <div class="col-sm-4 xs-hidden"></div>
+            </section>
+
+        </div>
+    </section>
+</div>

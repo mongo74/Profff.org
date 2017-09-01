@@ -39,7 +39,7 @@
     foreach (var id in selection)
     {
         var subSelection = id.GetPropertyValue<IEnumerable<IPublishedContent>>("subpages");
-        if(subSelection.Any())
+        if(subSelection !=null && subSelection.Any())
         {
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0"

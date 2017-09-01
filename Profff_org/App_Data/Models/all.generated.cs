@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "8ec60b5e53fea916")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "504be52c69f5de8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -444,12 +444,30 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Footer Block 1 title
+		///</summary>
+		[ImplementPropertyType("footerBlock1Title")]
+		public string FooterBlock1Title
+		{
+			get { return this.GetPropertyValue<string>("footerBlock1Title"); }
+		}
+
+		///<summary>
 		/// Footer Block 2: Sitenavigation items displayed in footer - Left Bottom block
 		///</summary>
 		[ImplementPropertyType("footerBlock2")]
 		public IEnumerable<IPublishedContent> FooterBlock2
 		{
 			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock2"); }
+		}
+
+		///<summary>
+		/// Footer Block  2 title
+		///</summary>
+		[ImplementPropertyType("footerBlock2Title")]
+		public string FooterBlock2Title
+		{
+			get { return this.GetPropertyValue<string>("footerBlock2Title"); }
 		}
 
 		///<summary>
@@ -462,12 +480,30 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Footer Block 3 title
+		///</summary>
+		[ImplementPropertyType("footerBlock3Title")]
+		public string FooterBlock3Title
+		{
+			get { return this.GetPropertyValue<string>("footerBlock3Title"); }
+		}
+
+		///<summary>
 		/// Footer Block 4: Sitenavigation items displayed in footer - Right Bottom Block
 		///</summary>
 		[ImplementPropertyType("footerBlock4")]
 		public IEnumerable<IPublishedContent> FooterBlock4
 		{
 			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("footerBlock4"); }
+		}
+
+		///<summary>
+		/// Footer Block 4 title
+		///</summary>
+		[ImplementPropertyType("footerBlock4Title")]
+		public string FooterBlock4Title
+		{
+			get { return this.GetPropertyValue<string>("footerBlock4Title"); }
 		}
 
 		///<summary>
@@ -1597,6 +1633,198 @@ namespace Umbraco.Web.PublishedContentModels
 		public IPublishedContent TitleImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.BasePage.GetTitleImage(this); }
+		}
+	}
+
+	/// <summary>ContactUs</summary>
+	[PublishedContentModel("contactUs")]
+	public partial class ContactUs : BasePage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "contactUs";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ContactUs(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactUs, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Banner</summary>
+	[PublishedContentModel("banner")]
+	public partial class Banner : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "banner";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Banner(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Banner, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Banner Background image
+		///</summary>
+		[ImplementPropertyType("bannerBackgroundImage")]
+		public IPublishedContent BannerBackgroundImage
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("bannerBackgroundImage"); }
+		}
+
+		///<summary>
+		/// Banner description: Copy on banner
+		///</summary>
+		[ImplementPropertyType("bannerDescription")]
+		public string BannerDescription
+		{
+			get { return this.GetPropertyValue<string>("bannerDescription"); }
+		}
+
+		///<summary>
+		/// Banner Target Link: Targetpage behind link
+		///</summary>
+		[ImplementPropertyType("bannerTargetLink")]
+		public IPublishedContent BannerTargetLink
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("bannerTargetLink"); }
+		}
+
+		///<summary>
+		/// Banner Title: Titel op banner
+		///</summary>
+		[ImplementPropertyType("bannerTitle")]
+		public string BannerTitle
+		{
+			get { return this.GetPropertyValue<string>("bannerTitle"); }
+		}
+	}
+
+	/// <summary>FullWidthBanner</summary>
+	[PublishedContentModel("fullWidthBanner")]
+	public partial class FullWidthBanner : Banner
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fullWidthBanner";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FullWidthBanner(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FullWidthBanner, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>DataRoot</summary>
+	[PublishedContentModel("dataRoot")]
+	public partial class DataRoot : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "dataRoot";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public DataRoot(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<DataRoot, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Banner Folder</summary>
+	[PublishedContentModel("bannerFolder")]
+	public partial class BannerFolder : DataRoot
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "bannerFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public BannerFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BannerFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>XmlSitemap</summary>
+	[PublishedContentModel("xmlSitemap")]
+	public partial class XmlSitemap : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "xmlSitemap";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public XmlSitemap(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<XmlSitemap, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 	}
 
